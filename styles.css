@@ -1,0 +1,23 @@
+.sphere {
+  stroke: #000;
+  stroke-width: 1.5px;
+  stroke-opacity: .5;
+  fill: none;
+}
+
+.graticule {
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+  fill: transparent;
+}
+
+.country {
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+.country:hover {
+  fill: orange;
+  cursor: pointer;
+}
