@@ -17,7 +17,14 @@
   stroke-width: 1px;
 }
 
-.country:hover {
+.country:hover,
+.country.focus {
   fill: orange;
   cursor: pointer;
+}
+
+#country-select {
+  position: fixed;
+  top: 10px;
+  left: 10px;
 }

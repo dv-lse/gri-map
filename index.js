@@ -27,12 +27,31 @@ queue()
     // data preprocessing
 
     let countries_map = {}
+    countries.sort( (a,b) => d3.ascending(a.Country, b.Country))
     countries.forEach( (d) => countries_map[d.ISO] = d)
 
     let counts = d3.nest()
       .key( (d) => d['Country ISO'] )
       .rollup( (v) => v.length )
       .map(legislation)
+
+    // controls
+
+    let dropdown = d3.select('body')
+      .append('select')
+        .attr('id', 'country-select')
+      .on('change', () => {
+        var iso = d3.event.target.value
+        let feature = features.filter( (d) => d.id === iso)
+        if(feature.length > 0) { focus(feature[0]) }
+        else { focus(null) }
+      })
+
+    let option = dropdown.selectAll('option')
+        .data([null].concat(countries.map( (d) => d.ISO)))
+       .enter().append('option')
+         .attr('value', (d) => d || 'NONE')
+         .html((d) => d ? countries_map[d].Country : '...')
 
     // visualisation
 
@@ -72,7 +91,10 @@ queue()
       .datum(graticule)
       .attr('class', 'graticule')
       .attr('d', path)
-      .on('click', reset)
+      .on('click', () => {
+        dropdown.property('value', 'NONE')
+        focus(null)
+      })
 
     let country = map.append('g')
         .attr('class', 'countries')
@@ -80,22 +102,29 @@ queue()
         .data(features)
 
     country.enter().append('path')
-      .attr('class', (d) => 'country')
+      .attr('class', (d) => 'country ' + d.id)
       .attr('d', path)
       .attr('fill', (d) => countries_map[d.id] ? color(iso_count(d)) : 'lightgray' )
-      .on('click', clicked)
+      .on('click', (d) => {
+        dropdown.property('value', d.id)
+        focus(d)
+      })
 
     let zoom = d3.zoom()
       .on("zoom", zoomed)
     map.call(zoom.transform, transform)
 
-    function reset() {
-      map.transition()
-        .duration(2000)
-        .call(zoom.transform, transform)
-    }
-
-    function clicked(feature) {
+    function focus(feature) {
+      d3.selectAll('.country')
+        .classed('focus', false)
+      if(!feature) {
+        map.transition()
+          .duration(2000)
+          .call(zoom.transform, transform)
+        return
+      }
+      d3.select('.country.' + feature.id)
+        .classed('focus', true)
       let bounds = path.bounds(feature)
       let dx = bounds[1][0] - bounds[0][0]
       let dy = bounds[1][1] - bounds[0][1]
