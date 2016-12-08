@@ -55,6 +55,11 @@ queue()
 
     // visualisation
 
+    let detail = d3.select('body')
+      .append('div')
+      .attr('id', 'country-detail')
+      .style('visibility', 'hidden')
+
     let svg = d3.select('body')
       .append('svg')
         .attr('width', WIDTH + MARGINS.left + MARGINS.right)
@@ -104,12 +109,18 @@ queue()
         .data(features)
 
     country.enter().append('path')
-      .attr('class', (d) => 'country ' + d.id)
+      .attr('class', (d) => 'country ' + d.id + (countries_map[d.id] ? ' active' : ' inactive'))
       .attr('d', path)
       .attr('fill', (d) => countries_map[d.id] ? color(iso_count(d)) : 'lightgray' )
-      .on('click', (d) => {
-        dropdown.property('value', d.id)
-        focus(d)
+      .on('click', function(d) {
+        let elem = d3.select(this)
+        console.log(elem.classed('inactive'))
+        if(countries_map[d.id] && !elem.classed('focus')) {
+          dropdown.property('value', d.id)
+          focus(d)
+        } else {
+          focus(null)
+        }
       })
 
     let zoom = d3.zoom()
@@ -117,28 +128,33 @@ queue()
     map.call(zoom.transform, transform)
 
     function focus(feature) {
+      let country_info = feature ? countries_map[feature.id] : null
+
       d3.selectAll('.country')
         .classed('focus', false)
+
       if(!feature) {
+        detail.style('visibility', 'hidden')
         map.transition()
           .duration(2000)
           .call(zoom.transform, transform)
-        return
+      } else {
+        d3.select('.country.' + feature.id)
+          .classed('focus', true)
+
+        let info = countries_map[feature.id]
+        detail.html('<h3>' + info.Country + '</h3><p>Lorem ipsum sic amet</p>')
+        let t = focus_coords(feature)
+        let trans = map.transition()
+          .duration(2000)
+        trans.call(zoom.transform, d3.zoomIdentity
+            .translate(WIDTH/5,HEIGHT/2)
+            .scale(t.scale)
+            .translate(-t.x,-t.y))
+        detail.transition()
+          .delay(2000)
+          .style('visibility', 'visible')
       }
-      d3.select('.country.' + feature.id)
-        .classed('focus', true)
-      let bounds = path.bounds(feature)
-      let dx = bounds[1][0] - bounds[0][0]
-      let dy = bounds[1][1] - bounds[0][1]
-      let x = (bounds[0][0] + bounds[1][0]) / 2
-      let y = (bounds[0][1] + bounds[1][1]) / 2
-      let scale = Math.max(1, Math.min(8, 0.9 / Math.max(dx / WIDTH, dy / HEIGHT)))
-      map.transition()
-        .duration(2000)
-        .call(zoom.transform, d3.zoomIdentity
-          .translate(WIDTH/5,HEIGHT/2)
-          .scale(scale)
-          .translate(-x,-y))
     }
 
     function transform() {
@@ -157,4 +173,25 @@ queue()
          .style('stroke-width', 1.5 / t.k + 'px')
     }
 
+    function focus_coords(feature) {
+
+      // for countries with multiple regions, choose the mainland
+      if(feature.geometry.type === 'MultiPolygon') {
+        let polygons = feature.geometry.coordinates.map( (cs) => {
+          return { type: 'Polygon', coordinates: cs }
+        })
+        let areas = polygons.map(path.area)
+        let indices = d3.range(0,polygons.length)
+          .sort( (a,b) => d3.descending(areas[a], areas[b]))
+        feature = polygons[indices[0]]
+      }
+
+      let bounds = path.bounds(feature)
+      let center = path.centroid(feature)
+      let dx = bounds[1][0] - bounds[0][0]
+      let dy = bounds[1][1] - bounds[0][1]
+      let scale = Math.max(1, Math.min(20, 0.9 / Math.max(dx / WIDTH, dy / HEIGHT)))
+
+      return { x: center[0], y: center[1], scale: scale }
+    }
   })

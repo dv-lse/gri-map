@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .sphere {
   stroke: #000;
   stroke-width: 1.5px;
@@ -17,8 +21,8 @@
   stroke-width: .5px;
 }
 
-.country:hover,
-.country.focus {
+.country.active:hover,
+.country.active.focus {
   fill: orange;
   cursor: pointer;
 }
@@ -27,4 +31,23 @@
   position: fixed;
   top: 10px;
   left: 10px;
+}
+
+#country-detail {
+  position: fixed;
+  background: rgba(255,255,255,.8);
+  padding: 20px;
+  top: 30px;
+  left: 550px;  /* 960 - 30 - 30 - 350 */
+  width: 350px;
+  height: 510px; /* 600 - 30 - 30 */
+  overflow-y: scroll;
+  border: 2px solid gray;
+
+  font-family: sans-serif;
+}
+
+#country-detail h3 {
+  margin: 0;
+  text-decoration: underline;
 }
