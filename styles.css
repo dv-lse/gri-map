@@ -1,20 +1,20 @@
 .sphere {
   stroke: #000;
   stroke-width: 1.5px;
-  stroke-opacity: .5;
+  stroke-opacity: .3;
   fill: none;
 }
 
 .graticule {
   stroke: #777;
   stroke-width: .5px;
-  stroke-opacity: .5;
+  stroke-opacity: .2;
   fill: transparent;
 }
 
 .country {
   stroke: #fff;
-  stroke-width: 1px;
+  stroke-width: .5px;
 }
 
 .country:hover,

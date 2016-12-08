@@ -2,8 +2,8 @@ import * as d3 from 'd3'
 import * as topojson from 'topojson-client'
 
 import {queue} from 'd3-queue'
-import {geoWinkel3} from 'd3-geo-projection'
-import {schemeRdBu as scheme} from 'd3-scale-chromatic'
+import {geoEckert3} from 'd3-geo-projection'
+import * as scheme from 'd3-scale-chromatic'
 
 import 'styles.css!'
 
@@ -65,7 +65,7 @@ queue()
 
     let map = g.append('g')
 
-    let projection = geoWinkel3()
+    let projection = geoEckert3()
       .translate([0,0])
       .scale(182)
       .precision(.1)
@@ -75,12 +75,14 @@ queue()
 
     let features = topojson.feature(world, world.objects.countries).features
 
-    var graticule = d3.geoGraticule()
+    let graticule = d3.geoGraticule()
+
+    let palette = scheme.schemeBlues[9].slice(2)
 
     let color = d3.scaleQuantile()
       .domain(features.filter( (d) => countries_map[d.id] )
                 .map( (d) => iso_count(d)))
-      .range(scheme[4])
+      .range(palette)
 
     map.append('path')
       .attr('class', 'sphere')
