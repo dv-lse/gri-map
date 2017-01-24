@@ -21,7 +21,7 @@ body {
   stroke-width: .5px;
 }
 
-.country.active:hover,
+.country.active.hover,
 .country.active.focus {
   fill: orange;
   cursor: pointer;

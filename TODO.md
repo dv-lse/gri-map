@@ -1,6 +1,7 @@
 TODO
 ====
 
+  - [ ] Remove globe circle & adjust background
   - [ ] Small countries / islands
   - [ ] Legend (fixed location)
   - [ ] Basic zoom & drag
