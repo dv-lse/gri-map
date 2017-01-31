@@ -59,11 +59,16 @@ function install(elem, width, height, cachetag) {
         .range(palette)
 
       svg.append('path')
+        .attr('class', 'map-sphere')
+        .datum({type: 'Sphere'})
+        .attr('d', path)
+
+      svg.append('path')
         .datum(graticule)
         .attr('class', 'map-graticule')
         .attr('d', path)
         .on('click', () => {
-          dropdown.property('value', 'NONE')
+          dropdown.property('value', null)
           focus(null)
         })
 
@@ -73,9 +78,12 @@ function install(elem, width, height, cachetag) {
           .data(features)
 
       country.enter().append('path')
-        .attr('class', (d) => 'map-country ' + d.id + (countries_map[d.id] ? ' active' : ' inactive'))
+        .attr('class', (d) => 'map-country ' + d.id + (metric(d.id) !== null ? ' active' : ' inactive'))
         .attr('d', path)
-        .attr('fill', (d) => countries_map[d.id] ? color(countries_map[d.id][METRIC]) : 'lightgray' )
+        .attr('fill', (d) => {
+          let n = metric(d.id)
+          return (n !== null) ? color(n) : 'lightgray'
+        })
         .on('click', function(d) {
           let elem = d3.select(this)
           if(countries_map[d.id] && !elem.classed('focus')) {
@@ -85,12 +93,8 @@ function install(elem, width, height, cachetag) {
             focus(null)
           }
         })
-        .on('mouseover', function(d) {
-          hover(d.id)
-        })
-        .on('mouseout', function() {
-          hover(null)
-        })
+        .on('mouseenter', (d) => hover(d.id))
+        .on('mouseleave', () => hover(null, 500))
 
       let zoom = d3.zoom()
         .on("zoom", zoomed)
@@ -104,37 +108,40 @@ function install(elem, width, height, cachetag) {
           .attr('class', 'map-select')
         .on('change', () => {
           var iso = d3.event.target.value
-          iso = iso === 'NULL' ? null : iso
           focus(iso)
         })
 
       dropdown.selectAll('option')
           .data([null].concat(countries.map( (d) => d.ISO)))
          .enter().append('option')
-           .attr('value', (d) => d) // || 'NONE')
+           .attr('value', (d) => d)
            .html((d) => d ? countries_map[d].Country : '...')
 
       // Utility functions
 
-      function hover(id) {
-        d3.selectAll('.map-country')
-          .classed('hover', (d) => d.id === id && countries_map[id])
+      let hover_id = null
+      function hover(id, delay=100) {
+        hover_id = id
+        setTimeout(clear, delay)
+
+        function clear() {
+          if(hover_id !== id) return
+          svg.selectAll('.map-country')
+            .classed('hover', (d) => d.id === id && countries_map[id])
+        }
       }
 
       function focus(id) {
-        d3.selectAll('.map-country')
-          .classed('focus', false)
+        svg.selectAll('.map-country')
+          .classed('focus', (d) => d.id === id)
 
         component.call('change', null, null)
 
-        if(!(id && countries_map[id])) {
+        if(!id) {
           svg.transition()
             .duration(2000)
             .call(zoom.transform, transform)
         } else {
-          d3.selectAll('.country.' + id)
-            .classed('focus', true)
-
           let t = focus_coords(id)
           let trans = svg.transition()
             .duration(2000)
@@ -147,10 +154,14 @@ function install(elem, width, height, cachetag) {
         }
       }
 
+      function metric(id) {
+        return id && countries_map[id] && countries_map[id][METRIC] ? countries_map[id][METRIC] : null
+      }
+
       function transform() {
         return d3.zoomIdentity
           .translate(width/2,height/2)
-          .scale(1)
+          .scale(.95)
       }
 
       function zoomed() {

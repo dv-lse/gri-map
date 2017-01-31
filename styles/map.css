@@ -4,6 +4,13 @@
   left: 0;
 }
 
+.map-sphere {
+  stroke: #000;
+  stroke-width: 1.5px;
+  stroke-opacity: .3;
+  fill: none;
+}
+
 .map-graticule {
   stroke: #777;
   stroke-width: .5px;
