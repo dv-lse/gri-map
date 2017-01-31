@@ -1,0 +1,30 @@
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.map-graticule {
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .2;
+  fill: transparent;
+}
+
+.map-country {
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.map-country.active.hover,
+.map-country.active.focus {
+  fill: orange;
+  cursor: pointer;
+}
+
+.map-select {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  user-select: none;
+}

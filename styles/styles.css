@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 960px;
+}
+
+#content {
+  margin-top:20px;
+  position: relative;
+}
+
+#gri-map {
+  position: absolute;
+}
+
+#gri-detail {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 440px;
+  height: 560px;
+  border: 2px solid gray;
+}
+
+#gri-detail[src=""] {
+  visibility: hidden;
+}
