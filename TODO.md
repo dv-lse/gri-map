@@ -18,7 +18,7 @@ TODO
 
   - [ ] Move focus calculations to prepublish step  HALF DONE
 
-  - [ ] Live search match to countries
+  - [ ] Live search match to countries  NOT TO DO
 
 
 LATER

@@ -21,7 +21,7 @@
 <script>
   System.import("index.js").then( function(visualisation) {
     var detail = document.getElementById("gri-detail")
-    visualisation.install(document.getElementById("gri-map"), 960, 600, "7e19624")
+    visualisation.install(document.getElementById("gri-map"), 960, 600)
       .on("change", function(id) {
         detail.src = id ? 'http://dbpedia.org/page/' + id + '': ''
       })

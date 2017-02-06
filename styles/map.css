@@ -33,6 +33,30 @@
   fill: orange;
 }
 
+.emissions {
+  fill: orange;
+}
+
+.emissions .label {
+  fill: black;
+  visibility: hidden;
+}
+
+.emissions.hover .label,
+.emissions.focus .label {
+  visibility: visible;
+}
+
+.emissions .label text {
+  font-family: Roboto, sans-serif;
+  font-size: 8pt;
+}
+
+.emissions .label path {
+  stroke: black;
+  fill: black;
+}
+
 .map-select {
   position: absolute;
   top: 10px;
