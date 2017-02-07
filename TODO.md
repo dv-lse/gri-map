@@ -8,8 +8,8 @@ TODO
   - [ ] Defocus country on zoom out?
   - [x] Limit zoom extent
   - [x] Dropdown to select country
-  - [ ] Search to limit dropdown
-  - [ ] Radio buttons for metric
+  - [ ] Search to limit dropdown  NOT TO DO
+  - [ ] Radio buttons for metric  NOT TO DO
   - [x] Click country to focus
   - [x] Zoom to focused country
   - [x] Info box on focused country

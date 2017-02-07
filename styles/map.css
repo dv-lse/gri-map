@@ -23,8 +23,8 @@
   stroke-width: .5px;
 }
 
-.map-country.active.hover,
-.map-country.active.focus {
+.active.hover,
+.active.focus {
   cursor: pointer;
 }
 
@@ -35,16 +35,38 @@
 
 .emissions {
   fill: orange;
+  stroke: white;
+  stroke-width: 0.5;
 }
 
 .emissions .label {
   fill: black;
+  stroke: none;
   visibility: hidden;
+}
+
+.axis .domain {
+  visibility: hidden;
+}
+
+.axis .tick text {
+  font-family: Roboto, sans-serif;
+  font-size: 8pt;
+  fill: black;
+}
+
+.axis .tick line {
+  stroke: black;
 }
 
 .emissions.hover .label,
 .emissions.focus .label {
   visibility: visible;
+}
+
+.emissions.hover path,
+.emissions.focus path {
+  fill: red;
 }
 
 .emissions .label text {
