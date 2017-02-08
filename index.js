@@ -182,7 +182,7 @@ function install(elem, width, height) {
 
       // interaction
 
-      d3.selectAll('.country')
+      d3.selectAll('.country path')
         .on('click', function(d) {
           focus(d.id !== focus_id ? d.id : null)
           d3.event.stopPropagation()
