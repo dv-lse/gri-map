@@ -80,6 +80,7 @@ function install(elem, width, height) {
         return d
       })
 
+      let percent_fmt = d3.format('.1%')
       let emissions_fmt = d3.format(',.1f')
 
       // SVG elements
@@ -135,7 +136,10 @@ function install(elem, width, height) {
 
       emissions_label.append('text')
         .attr('dy', '-.5em')
-        .text( (d) => emissions_fmt(d.data.emissions) + ' MTCO2e' )
+        .text( (d) => {
+          let pct = d.data.emissions / emissions_scale.domain()[1]
+          return emissions_fmt(d.data.emissions) + ' MTCO2e [ ' + (pct < 0.001 ? '≤ 0.1%' : percent_fmt(pct)) + ' ]'
+        })
 
       let emissions_axis = svg.append('g')
           .attr('class', 'axis')
@@ -158,14 +162,14 @@ function install(elem, width, height) {
         .attr('x', 10)
         .attr('y', 10)
         .attr('dy', '0.7em')
-        .text(d3.format('.0%'))
+        .text(percent_fmt)
 
       ticks.filter((i) => i === 1)
         .append('text')
           .attr('x', 10)
           .attr('y', 10)
           .attr('dy', '1.75em')
-          .text((d) => emissions_fmt(emissions_scale.range()[1] * d))
+          .text((d) => emissions_fmt(emissions_scale.domain()[1] * d) + ' MTCO2e' )
 
       function update(sel, hover_id) {
         sel.selectAll('.map-feature.country path')
@@ -246,15 +250,18 @@ function install(elem, width, height) {
       }
 
       function focus_coords(id) {
-        let sel_features = features.filter( (d) => d.id === id && d.properties.homepart)
+        let sel_features = features.filter( (d) => d.id === id )
         let areas = sel_features.map(path.area)
-        let idx = d3.range(0,areas.length).sort(d3.descending)[0]
+        let idx = d3.range(0,areas.length).sort((a,b) => d3.descending(areas[a], areas[b]))[0]
 
         let bounds = path.bounds(sel_features[idx])
         let center = path.centroid(sel_features[idx])
         let dx = bounds[1][0] - bounds[0][0]
         let dy = bounds[1][1] - bounds[0][1]
         let scale = Math.max(1, Math.min(20, 0.9 / Math.max(dx / width, dy / height)))
+
+        console.log(JSON.stringify({ areas: areas, best: idx, bounds: bounds, center: center }))
+
 
         return { x: center[0] / scale, y: center[1] / scale, scale: scale }
       }
