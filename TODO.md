@@ -3,11 +3,14 @@ TODO
 
   - [ ] Translation extent for zoom
   - [ ] Opaque rectangle behind labels?
-  - [ ] Remove globe circle & adjust background
+
   - [ ] Small countries / islands
   - [ ] Legend (fixed location)
-  - [ ] Basic zoom & drag
-  - [ ] Defocus country on zoom out?
+
+  - [ ] Unfocus on a country on any drag or zoom
+
+  - [ ] Remove globe circle & adjust background  NOT TO DO
+  - [x] Basic zoom & drag
   - [x] Limit zoom extent
   - [x] Dropdown to select country
   - [ ] Search to limit dropdown  NOT TO DO

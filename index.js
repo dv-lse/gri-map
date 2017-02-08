@@ -8,7 +8,7 @@ import * as scheme from 'd3-scale-chromatic'
 const DATAPOINT = 'data/emissions.json'
 const WORLD_MAP = 'world/50m.json'
 
-const BAR_MARGINS = { top: 0, right: 15, bottom: 85, left: 15 }
+const BAR_MARGINS = { top: 0, right: 15, bottom: 65, left: 15 }
 const BAR_HEIGHT = 20
 
 function install(elem, width, height) {
@@ -51,8 +51,8 @@ function install(elem, width, height) {
       let g = svg.append('g')
 
       let projection = geoEckert3()
-        .translate([0,0])
         .scale(180)
+        .translate([0, 0])
         .precision(.1)
 
       let path = d3.geoPath()
@@ -187,20 +187,20 @@ function install(elem, width, height) {
           focus(d.id !== focus_id ? d.id : null)
           d3.event.stopPropagation()
         })
-        .on('mouseenter', (d) => highlight(d.id) )
-        .on('mouseleave', () => highlight(null) )
+        .on('mouseenter', (d) => focus_id || highlight(d.id) )
+        .on('mouseleave', () => focus_id || highlight(null) )
 
       let zoom = d3.zoom()
         .scaleExtent([0.9, 8])
-        .on("zoom", () => {
+        .on('zoom', () => {
           let t = d3.event.transform
-          g.attr("transform", "translate(" + [t.x, t.y] + ")scale(" + t.k + ")translate(" + [width / 2, height / 2] + ")")
+          g.attr('transform', t)
            .style('stroke-width', 1.5 / t.k + 'px')
         })
 
       svg.call(update, null)
          .call(zoom)
-         .call(zoom.transform, d3.zoomIdentity)
+         .call(zoom.transform, zoomTransform(null))
 
 
       // HTML controls
@@ -227,43 +227,49 @@ function install(elem, width, height) {
 
         highlight(id)
 
-        let t = d3.zoomIdentity
-        if(id) {
-          let c = focus_coords(id)
-          t = t.translate(-c.x,-c.y)
-               .scale(c.scale)
-        }
-
-        svg.transition()
+        let t = svg.transition('zoom')
           .duration(2000)
-          .call(zoom.transform, t)
+          .call(zoom.transform, zoomTransform(id))
 
         component.call('change', null, id)
       }
 
       // utility functions
 
+      function zoomTransform(id) {
+        if(id) {
+          let c = focus_coords(id)
+          return d3.zoomIdentity
+             .translate(c.x, c.y)
+             .scale(c.scale)
+        } else {
+          return d3.zoomIdentity
+                   .translate(width/2, height/2)
+        }
+      }
+
       function highlight(id) {
-        svg.transition()
+        svg.transition('highlight')
           .duration(500)
           .call(update, id)
       }
 
       function focus_coords(id) {
+        // c.f. https://bl.ocks.org/iamkevinv/0a24e9126cd2fa6b283c6f2d774b69a2
+
         let sel_features = features.filter( (d) => d.id === id )
         let areas = sel_features.map(path.area)
         let idx = d3.range(0,areas.length).sort((a,b) => d3.descending(areas[a], areas[b]))[0]
 
         let bounds = path.bounds(sel_features[idx])
-        let center = path.centroid(sel_features[idx])
         let dx = bounds[1][0] - bounds[0][0]
         let dy = bounds[1][1] - bounds[0][1]
+        let x = (bounds[0][0] + bounds[1][0]) / 2
+        let y = (bounds[0][1] + bounds[1][1]) / 2
         let scale = Math.max(1, Math.min(20, 0.9 / Math.max(dx / width, dy / height)))
+        let translate = [width / 4 - scale * x, height / 2 - scale * y]
 
-        console.log(JSON.stringify({ areas: areas, best: idx, bounds: bounds, center: center }))
-
-
-        return { x: center[0] / scale, y: center[1] / scale, scale: scale }
+        return { x: translate[0], y: translate[1], scale: scale }
       }
     })
 
