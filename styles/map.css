@@ -1,3 +1,5 @@
+/* GIS map */
+
 .map {
   position: absolute;
   top: 0;
@@ -18,23 +20,18 @@
   fill: transparent;
 }
 
-.map-country {
+.map-feature {
   stroke: #fff;
   stroke-width: .5px;
 }
 
-.active.hover,
-.active.focus {
+.country {
   cursor: pointer;
 }
 
-.map-country.active.hover path,
-.map-country.active.focus path {
-  fill: orange;
-}
+/* total emissions bar */
 
 .emissions {
-  fill: orange;
   stroke: white;
   stroke-width: 0.5;
 }
@@ -42,11 +39,16 @@
 .emissions .label {
   fill: black;
   stroke: none;
-  visibility: hidden;
 }
 
-.axis .domain {
-  visibility: hidden;
+.emissions .label text {
+  font-family: Roboto, sans-serif;
+  font-size: 8pt;
+}
+
+.emissions .label path {
+  stroke: black;
+  fill: black;
 }
 
 .axis .tick text {
@@ -59,25 +61,7 @@
   stroke: black;
 }
 
-.emissions.hover .label,
-.emissions.focus .label {
-  visibility: visible;
-}
-
-.emissions.hover path,
-.emissions.focus path {
-  fill: red;
-}
-
-.emissions .label text {
-  font-family: Roboto, sans-serif;
-  font-size: 8pt;
-}
-
-.emissions .label path {
-  stroke: black;
-  fill: black;
-}
+/* HTML dropdown */
 
 .map-select {
   position: absolute;

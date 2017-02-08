@@ -1,6 +1,8 @@
 TODO
 ====
 
+  - [ ] Translation extent for zoom
+  - [ ] Opaque rectangle behind labels?
   - [ ] Remove globe circle & adjust background
   - [ ] Small countries / islands
   - [ ] Legend (fixed location)

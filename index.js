@@ -11,14 +11,13 @@ const WORLD_MAP = 'world/50m.json'
 const BAR_MARGINS = { top: 0, right: 15, bottom: 85, left: 15 }
 const BAR_HEIGHT = 20
 
-const EMISSIONS_TICKS = 5
-
-const EMISSIONS_FORMAT = d3.format(',.1f')
-const PERCENT_FORMAT = d3.format('.0%')
-
 function install(elem, width, height) {
 
   let component = d3.dispatch('change')
+
+  // main application state
+
+  let focus_id = null
 
   queue.queue()
     .defer(d3.json, WORLD_MAP)
@@ -26,26 +25,20 @@ function install(elem, width, height) {
     .await( (err, world, countries) => {
       if(err) throw err
 
-      // data preprocessing
+      // post-process countries dataset [ becomes emissions bar ]
 
-      let countries_map = countries.countries
+      countries = countries.filter( (d) => d.is_country )
+      countries.forEach( (d) => d.id = d.iso )
+      countries.sort( (a,b) => d3.ascending(a.name, b.name) )
 
-      d3.keys(countries_map).forEach( (id) => {
-        countries_map[id].laws = +countries_map[id].laws
-        countries_map[id].emissions = +countries_map[id].emissions
-      })
+      // post-process map [ move laws count into GIS dataset ]
 
       let features = topojson.feature(world, world.objects.countries).features
 
-      let features_map = {}
-      features.forEach( (d) => features_map[d.id] = d )
-
-      let emissions_ids = d3.keys(countries_map)
-      emissions_ids.sort((a,b) => {
-        return d3.descending(countries_map[a].emissions, countries_map[b].emissions)
+      let laws = countries.reduce( (m, d) => (m[d.iso] = d.laws, m), {} )
+      features.forEach( (d) => {
+        if(d.id in laws) { d.properties.laws = laws[d.id] }
       })
-
-      let total_emissions = d3.sum(d3.keys(countries_map), (id) => countries_map[id].emissions)
 
       // visualisation
 
@@ -72,22 +65,28 @@ function install(elem, width, height) {
         .range(scheme.schemeBlues[7].slice(1))
 
       let emissions_scale = d3.scaleLinear()
-        .domain([0, d3.sum(d3.keys(countries_map), (id) => countries_map[id].emissions)])
+        .domain([0, d3.sum(countries, (d) => d.emissions)])
         .range([0, width - BAR_MARGINS.left - BAR_MARGINS.right ])
 
       let offset = 0
-      let emissions = emissions_ids.map( (id,j) => {
-        let v = countries_map[id] && !isNaN(countries_map[id].emissions) ? emissions_scale(countries_map[id].emissions) : 0
+      let emissions_indices = d3.range(0,countries.length)
+                                .sort( (a,b) => d3.descending(countries[a].emissions, countries[b].emissions) )
+      let emissions = emissions_indices.map( (i) => {
+        let v = emissions_scale(countries[i].emissions)
         let d = [ offset, offset + v ]
-        d.id = id
-        offset = offset + v
+        offset += v
+        d.data = countries[i]
+        d.id = countries[i].id
         return d
       })
 
+      let emissions_fmt = d3.format(',.1f')
+
+      // SVG elements
+
       svg.on('click', () => {
-          dropdown.property('value', null)
-          focus(null)
-        })
+        focus(null)
+      })
 
       g.append('path')
         .attr('class', 'map-sphere')
@@ -99,30 +98,27 @@ function install(elem, width, height) {
         .attr('class', 'map-graticule')
         .attr('d', path)
 
-      let country = g.append('g')
-          .attr('class', 'map-countries')
-        .selectAll('.map-country')
+      g.append('g')
+          .attr('class', 'map-features')
+        .selectAll('.map-feature')
           .data(features)
+         .enter().append('g')
+          .attr('class', (d) => 'map-feature ' + d.id + (d.properties.laws >= 0 ? ' country' : ''))
+          .append('path')
+            .attr('d', path)
+            .attr('fill', 'lightgray')
 
-      let country_enter = country.enter().append('g')
-        .attr('class', (d) => 'map-country ' + d.id + (countries_map[d.id] ? ' active' : ' inactive'))
-
-      country_enter.append('path')
-        .attr('d', path)
-        .attr('fill', (d) => countries_map[d.id] ? laws_scale(countries_map[d.id].laws) : 'lightgray')
-
+      let left_justify = (d) => (d[0] + d[1]) / 2 < width / 2
       let emissions_bar = svg.append('g')
           .attr('class', 'emissions_bar')
           .attr('transform', 'translate(' + [ BAR_MARGINS.left, height - BAR_MARGINS.bottom - BAR_HEIGHT ] + ')')
         .selectAll('.emissions')
             .data(emissions)
           .enter().append('g')
-            .attr('class', (d) => 'emissions active ' + d.id)
+            .attr('class', (d) => 'emissions country ' + d.data.iso)
 
       emissions_bar.append('path')
           .attr('d', (d) => 'M' + d[0] + ' 0H' + d[1] + 'V' + BAR_HEIGHT + 'H' + d[0] + 'Z')
-
-      let left_justify = (d) => (d[0] + d[1]) / 2 < width / 2
 
       let emissions_label = emissions_bar.append('g')
         .attr('class', 'label')
@@ -131,23 +127,19 @@ function install(elem, width, height) {
 
       emissions_label.append('text')
         .attr('dy', '-3.25em')
-        .text( (d) => countries_map[d.id].name )
+        .text( (d) => d.data.name )
 
       emissions_label.append('text')
         .attr('dy', '-1.75em')
-        .text( (d) => countries_map[d.id].laws + ' laws')
+        .text( (d) => d.data.laws + ' laws')
 
       emissions_label.append('text')
         .attr('dy', '-.5em')
-        .text( (d) => EMISSIONS_FORMAT(countries_map[d.id].emissions) + ' megatons')
+        .text( (d) => emissions_fmt(d.data.emissions) + ' MTCO2e' )
 
       let emissions_axis = svg.append('g')
           .attr('class', 'axis')
           .attr('transform', 'translate(' + [ BAR_MARGINS.left, height - BAR_MARGINS.bottom] + ')')
-
-      emissions_axis.call(d3.axisBottom(emissions_scale)
-        .ticks(emissions_scale.ticks().concat(emissions_scale.domain()[1]))
-        .tickFormat((d,i) => EMISSIONS_FORMAT(d) + ' megatons'))
 
       let ticks = emissions_axis.selectAll('.tick')
         .data([0,.25,.5,.75,1])
@@ -166,29 +158,33 @@ function install(elem, width, height) {
         .attr('x', 10)
         .attr('y', 10)
         .attr('dy', '0.7em')
-        .text(PERCENT_FORMAT)
+        .text(d3.format('.0%'))
 
       ticks.filter((i) => i === 1)
         .append('text')
           .attr('x', 10)
           .attr('y', 10)
           .attr('dy', '1.75em')
-          .text((i) => EMISSIONS_FORMAT(total_emissions * i) + ' megatons')
+          .text((d) => emissions_fmt(emissions_scale.range()[1] * d))
+
+      function update(sel, hover_id) {
+        sel.selectAll('.map-feature.country path')
+          .attr('fill', (d) => d.id !== hover_id ? laws_scale(d.properties.laws) : 'orange')
+        sel.selectAll('.emissions path')
+          .attr('fill', (d) => d.id !== hover_id ? 'orange' : 'red')
+        sel.selectAll('.emissions .label')
+          .attr('opacity', (d) => d.id !== hover_id ? 0 : 1)
+      }
 
       // interaction
-      d3.selectAll('.active')
+
+      d3.selectAll('.country')
         .on('click', function(d) {
-          let elem = d3.select(this)
-          if(countries_map[d.id] && !elem.classed('focus')) {
-            dropdown.property('value', d.id)
-            focus(d.id)
-          } else {
-            focus(null)
-          }
+          focus(d.id !== focus_id ? d.id : null)
           d3.event.stopPropagation()
         })
-        .on('mouseenter', (d) => hover(d.id))
-        .on('mouseleave', () => hover(null, 500))
+        .on('mouseenter', (d) => highlight(d.id) )
+        .on('mouseleave', () => highlight(null) )
 
       let zoom = d3.zoom()
         .scaleExtent([0.9, 8])
@@ -198,60 +194,55 @@ function install(elem, width, height) {
            .style('stroke-width', 1.5 / t.k + 'px')
         })
 
-      svg.call(zoom)
+      svg.call(update, null)
+         .call(zoom)
          .call(zoom.transform, d3.zoomIdentity)
 
 
-      // controls
+      // HTML controls
 
       let dropdown = d3.select(elem)
         .append('select')
           .attr('class', 'map-select')
         .on('change', () => {
           var iso = d3.event.target.value
-          focus(iso)
+          focus(iso !== 'NONE' ? iso : null)
         })
 
       dropdown.selectAll('option')
-          .data([null].concat(d3.keys(countries_map)))
+           .data([null].concat(countries))
          .enter().append('option')
-           .attr('value', (d) => d)
-           .html((d) => d ? countries_map[d].name : '...')
-
-
-      // Utility functions
-
-      let hover_id = null
-      function hover(id, delay=100) {
-        hover_id = id
-        setTimeout(clear, delay)
-
-        function clear() {
-          if(hover_id !== id) return
-          svg.selectAll('.active')
-            .classed('hover', (d) => d.id === id && countries_map[id])
-        }
-      }
+           .attr('value', (d) => d ? d.id : 'NONE')
+           .html((d) => d ? d.name : 'Select country')
 
       function focus(id) {
-        svg.selectAll('.active')
-          .classed('focus', (d) => d.id === id)
+        // Update application state
+        //   NB does NOT fire a change event, so no loops
+        focus_id = id
+        dropdown.property('value', id || 'NONE')
 
-        component.call('change', null, null)
+        highlight(id)
 
-        if(!id) {
-          svg.transition()
-            .duration(2000)
-            .call(zoom.transform, d3.zoomIdentity)
-        } else {
-          let t = focus_coords(id)
-          svg.transition()
-            .duration(2000)
-            .on('end', () => component.call('change', null, countries_map[id].name))
-            .call(zoom.transform, d3.zoomIdentity
-              .translate(-t.x,-t.y)
-              .scale(t.scale))
+        let t = d3.zoomIdentity
+        if(id) {
+          let c = focus_coords(id)
+          t = t.translate(-c.x,-c.y)
+               .scale(c.scale)
         }
+
+        svg.transition()
+          .duration(2000)
+          .call(zoom.transform, t)
+
+        component.call('change', null, id)
+      }
+
+      // utility functions
+
+      function highlight(id) {
+        svg.transition()
+          .duration(500)
+          .call(update, id)
       }
 
       function focus_coords(id) {
