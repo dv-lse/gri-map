@@ -5,7 +5,7 @@ import * as queue from 'd3-queue'
 import {geoEckert3} from 'd3-geo-projection'
 import * as scheme from 'd3-scale-chromatic'
 
-const DATAPOINT = 'data/emissions.json'
+const DATAPOINT = 'http://www.lse.ac.uk/GranthamInstitute/wp-json/countries/v1/data/55783476/'
 const WORLD_MAP = 'world/50m.json'
 
 const BAR_MARGINS = { top: 0, right: 15, bottom: 65, left: 15 }
@@ -184,7 +184,7 @@ function install(elem, width, height) {
 
       d3.selectAll('.country path')
         .on('click', function(d) {
-          focus(d.id !== focus_id ? d.id : null)
+          focus(d.id !== focus_id ? d : null)
           d3.event.stopPropagation()
         })
         .on('mouseenter', (d) => focus_id || highlight(d.id) )
@@ -219,19 +219,19 @@ function install(elem, width, height) {
            .attr('value', (d) => d ? d.id : 'NONE')
            .html((d) => d ? d.name : 'Select country')
 
-      function focus(id) {
+      function focus(d) {
         // Update application state
         //   NB does NOT fire a change event, so no loops
-        focus_id = id
+        focus_id = d.id
         dropdown.property('value', id || 'NONE')
 
-        highlight(id)
+        highlight(d.id)
 
         let t = svg.transition('zoom')
           .duration(2000)
-          .call(zoom.transform, zoomTransform(id))
+          .call(zoom.transform, zoomTransform(d.id))
 
-        component.call('change', null, id)
+        component.call('change', null, d)
       }
 
       // utility functions
