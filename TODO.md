@@ -1,10 +1,13 @@
 TODO
 ====
 
+  - [ ] Close mark on detail box
   - [ ] Translation extent for zoom
   - [ ] Opaque rectangle behind labels?
+  - [ ] Marks every 10%, no decimal in emissions
 
   - [ ] Small countries / islands
+  - [ ] Use NE tiny countries + EU for choropleth dots
   - [ ] Legend (fixed location)
 
   - [ ] Unfocus on a country on any drag or zoom
