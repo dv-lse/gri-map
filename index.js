@@ -5,7 +5,7 @@ import * as queue from 'd3-queue'
 import {geoEckert3} from 'd3-geo-projection'
 import * as scheme from 'd3-scale-chromatic'
 
-const DATAPOINT = 'http://www.lse.ac.uk/GranthamInstitute/wp-json/countries/v1/data/55783476/'
+const DATAPOINT = 'data/emissions.json' //'http://www.lse.ac.uk/GranthamInstitute/wp-json/countries/v1/data/55783476/'
 const WORLD_MAP = 'world/50m.json'
 
 const BAR_MARGINS = { top: 0, right: 15, bottom: 65, left: 15 }
@@ -25,11 +25,16 @@ function install(elem, width, height) {
     .await( (err, world, countries) => {
       if(err) throw err
 
-      // post-process countries dataset [ becomes emissions bar ]
+      // post-process countries dataset [ dropdown & emissions bar ]
 
-      countries = countries.filter( (d) => d.is_country )
-      countries.forEach( (d) => d.id = d.iso )
       countries.sort( (a,b) => d3.ascending(a.name, b.name) )
+      let root = d3.stratify()
+        .id((d) => d.id || d.iso)
+        .parentId((d) => d.id !== 'ROOT' ? d.parent_iso || 'ROOT' : undefined)
+        (countries.concat({id:'ROOT'}))
+
+      root.eachAfter( (d) => d.value = d.children && d.children.length ? d3.sum(d.children, (v) => v.value) : d.data.emissions)
+        .sort( (a,b) => d3.descending(a.value, b.value) )
 
       // post-process map [ move laws count into GIS dataset ]
 
@@ -68,17 +73,12 @@ function install(elem, width, height) {
         .domain([0, d3.sum(countries, (d) => d.emissions)])
         .range([0, width - BAR_MARGINS.left - BAR_MARGINS.right ])
 
-      let offset = 0
-      let emissions_indices = d3.range(0,countries.length)
-                                .sort( (a,b) => d3.descending(countries[a].emissions, countries[b].emissions) )
-      let emissions = emissions_indices.map( (i) => {
-        let v = emissions_scale(countries[i].emissions)
-        let d = [ offset, offset + v ]
-        offset += v
-        d.data = countries[i]
-        d.id = countries[i].id
-        return d
-      })
+      let partition = d3.partition()
+        .size([width - BAR_MARGINS.left - BAR_MARGINS.right, BAR_HEIGHT])
+        .padding(1)
+        .round(true)
+
+      partition(root)
 
       let percent_fmt = d3.format('.1%')
       let emissions_fmt = d3.format(',.1f')
@@ -109,21 +109,24 @@ function install(elem, width, height) {
             .attr('d', path)
             .attr('fill', 'lightgray')
 
-      let left_justify = (d) => (d[0] + d[1]) / 2 < width / 2
+      let left_justify = (d) => (d.x0 + d.x1) / 2 < width / 2
       let emissions_bar = svg.append('g')
           .attr('class', 'emissions_bar')
           .attr('transform', 'translate(' + [ BAR_MARGINS.left, height - BAR_MARGINS.bottom - BAR_HEIGHT ] + ')')
         .selectAll('.emissions')
-            .data(emissions)
+            .data(root.descendants().filter((d) => d.depth > 0))
           .enter().append('g')
             .attr('class', (d) => 'emissions country ' + d.data.iso)
 
-      emissions_bar.append('path')
-          .attr('d', (d) => 'M' + d[0] + ' 0H' + d[1] + 'V' + BAR_HEIGHT + 'H' + d[0] + 'Z')
+      emissions_bar.append('rect')
+        .attr('x', (d) => d.x0)
+        .attr('width', (d) => d.x1 - d.x0)
+        .attr('y', (d) => BAR_HEIGHT - d.depth * BAR_HEIGHT / (d.depth + d.height))
+        .attr('height', (d) => BAR_HEIGHT / (d.depth + d.height))
 
       let emissions_label = emissions_bar.append('g')
         .attr('class', 'label')
-        .attr('transform', (d) => 'translate(' + (left_justify(d) ? d[0] : d[1]) + ')')
+        .attr('transform', (d) => 'translate(' + (left_justify(d) ? d.x0 : d.x1) + ')')
         .attr('text-anchor', (d) => left_justify(d) ? 'start' : 'end')
 
       emissions_label.append('text')
@@ -146,7 +149,7 @@ function install(elem, width, height) {
           .attr('transform', 'translate(' + [ BAR_MARGINS.left, height - BAR_MARGINS.bottom] + ')')
 
       let ticks = emissions_axis.selectAll('.tick')
-        .data([0,.25,.5,.75,1])
+        .data(d3.range(0, 1.1, 0.1))
         .enter().append('g')
           .attr('class', 'tick')
           .attr('text-anchor', 'end')
@@ -158,11 +161,12 @@ function install(elem, width, height) {
         .attr('y1', 2)
         .attr('y2', 8)
 
-      ticks.append('text')
-        .attr('x', 10)
-        .attr('y', 10)
-        .attr('dy', '0.7em')
-        .text(percent_fmt)
+      ticks.filter((d,i) => i % 2 === 0)
+        .append('text')
+          .attr('x', 10)
+          .attr('y', 10)
+          .attr('dy', '0.7em')
+          .text(d3.format('.0%'))
 
       ticks.filter((i) => i === 1)
         .append('text')
@@ -174,7 +178,7 @@ function install(elem, width, height) {
       function update(sel, hover_id) {
         sel.selectAll('.map-feature.country path')
           .attr('fill', (d) => d.id !== hover_id ? laws_scale(d.properties.laws) : 'orange')
-        sel.selectAll('.emissions path')
+        sel.selectAll('.emissions rect')
           .attr('fill', (d) => d.id !== hover_id ? 'orange' : 'red')
         sel.selectAll('.emissions .label')
           .attr('opacity', (d) => d.id !== hover_id ? 0 : 1)
@@ -182,7 +186,7 @@ function install(elem, width, height) {
 
       // interaction
 
-      d3.selectAll('.country path')
+      d3.selectAll('.country rect')
         .on('click', function(d) {
           focus(d.id !== focus_id ? d : null)
           d3.event.stopPropagation()
@@ -222,14 +226,14 @@ function install(elem, width, height) {
       function focus(d) {
         // Update application state
         //   NB does NOT fire a change event, so no loops
-        focus_id = d.id
-        dropdown.property('value', id || 'NONE')
+        focus_id = d ? d.id : null
+        dropdown.property('value', focus_id || 'NONE')
 
-        highlight(d.id)
+        highlight(focus_id)
 
         let t = svg.transition('zoom')
           .duration(2000)
-          .call(zoom.transform, zoomTransform(d.id))
+          .call(zoom.transform, zoomTransform(focus_id))
 
         component.call('change', null, d)
       }

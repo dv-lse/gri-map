@@ -6,11 +6,12 @@ TODO
   - [ ] Opaque rectangle behind labels?
   - [ ] Marks every 10%, no decimal in emissions
 
-  - [ ] Small countries / islands
+  - [ ] Small countries / islands in GIS layer
   - [ ] Use NE tiny countries + EU for choropleth dots
   - [ ] Legend (fixed location)
 
   - [ ] Unfocus on a country on any drag or zoom
+  - [ ] EU in dropdown, group in emissions bar
 
   - [ ] Remove globe circle & adjust background  NOT TO DO
   - [x] Basic zoom & drag
