@@ -8,21 +8,29 @@ rm -rvf world
 
 world_shp() {
   mkdir -p build
+
   curl -z build/ne_$1_admin_0_map_subunits.zip -o build/ne_$1_admin_0_map_subunits.zip http://naciscdn.org/naturalearth/$1/cultural/ne_$1_admin_0_map_subunits.zip
   unzip -od build build/ne_$1_admin_0_map_subunits.zip
   chmod a-x build/ne_$1_admin_0_map_subunits.*
+
+  curl -z build/ne_$1_admin_0_tiny_countries.zip -o build/ne_$1_admin_0_tiny_countries.zip http://naciscdn.org/naturalearth/$1/cultural/ne_$1_admin_0_tiny_countries.zip
+  unzip -od build build/ne_$1_admin_0_tiny_countries.zip
+  chmod a-x build/ne_$1_admin_0_tiny_countries.*
 }
 
 world() {
   world_shp $1
   mkdir -p world
-  geo2topo -q 1e5 -n countries=<( \
-      shp2json -n build/ne_$1_admin_0_map_subunits.shp \
-        | ndjson-map '(d.id = d.properties.adm0_a3, d.properties = { homepart: d.properties.homepart === 1.0, tiny: d.properties.tiny >= 0 }, d)' \
-        | geostitch -n) \
-    | topomerge land=countries \
-    > world/$1.json
+  shp2json -n build/ne_$1_admin_0_tiny_countries.shp \
+    | ndjson-filter '(d.properties.homepart > 0)' \
+    | ndjson-map '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
+    > build/points.json
+  shp2json -n build/ne_$1_admin_0_map_subunits.shp \
+    | ndjson-map '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
+    | geostitch -n \
+    > build/features.json
+  geo2topo -q 1e5 -n countries=<(cat build/features.json build/points.json) > world/$1.json
 }
 
-#world 110m
+#world 10m
 world 50m

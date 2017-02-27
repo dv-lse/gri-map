@@ -4,6 +4,7 @@ TODO
   - [ ] Use NE tiny countries + EU for choropleth dots
   - [x] Legend (fixed location)
   - [ ] Small countries / islands in GIS layer
+  - [ ] Use land layer for continents; omit any features that are not countries
 
   - [ ] Continue using stratify + partition, or roll own solution?
   - [x] Mouseover on map
