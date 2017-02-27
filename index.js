@@ -115,7 +115,7 @@ function install(elem, width, height) {
           .attr('class', (d) => 'map-feature ' + d.id + (d.properties.laws >= 0 ? ' country' : ''))
           .append('path')
             .attr('d', path)
-            .attr('fill', 'lightgray')
+            .attr('fill', (d) => d.properties.laws ? laws_scale(d.properties.laws) : 'lightgray')
 
       // map legend
 
@@ -234,8 +234,8 @@ function install(elem, width, height) {
           .text((d) => emissions_fmt(emissions_scale.domain()[1] * d) + ' MtCO2e' )
 
       function update(sel, hover_id) {
-        sel.selectAll('.map-feature.country path')
-          .attr('fill', (d) => d.id !== hover_id ? laws_scale(d.properties.laws) : 'orange')
+        sel.selectAll('.map-feature path')
+          .attr('opacity', (d) => !hover_id || d.id == hover_id ? 1 : 0.2)
         sel.selectAll('.emissions path')
           .attr('fill', (d) => d.id !== hover_id ? 'orange' : 'red')
         sel.selectAll('.emissions .label')

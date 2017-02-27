@@ -12,7 +12,7 @@ TODO
   - [ ] Close mark on detail box
 
   - [x] Marks every 10%, no decimal in emissions
-  - [ ] Map transition shouldn't be green
+  - [x] Map transition shouldn't be green
   - [ ] Two background areas
           fixed, behind emissions bar
           temporary, behind all labels
