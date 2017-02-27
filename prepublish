@@ -18,7 +18,7 @@ world() {
   mkdir -p world
   geo2topo -q 1e5 -n countries=<( \
       shp2json -n build/ne_$1_admin_0_map_subunits.shp \
-        | ndjson-map '(d.id = d.properties.adm0_a3, d.properties = { homepart: d.properties.homepart === 1.0, tiny: d.properties.tiny >= 0, continent: d.properties.continent }, d)' \
+        | ndjson-map '(d.id = d.properties.adm0_a3, d.properties = { homepart: d.properties.homepart === 1.0, tiny: d.properties.tiny >= 0 }, d)' \
         | geostitch -n) \
     | topomerge land=countries \
     > world/$1.json

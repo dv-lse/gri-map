@@ -11,6 +11,12 @@ const WORLD_MAP = 'world/50m.json'
 const BAR_MARGINS = { top: 0, right: 15, bottom: 65, left: 15 }
 const BAR_HEIGHT = 20
 
+const LEGEND_MARGINS = { top: 50, right: 50, bottom: 20, left: 20 }
+const LEGEND_HEIGHT = 200
+const LEGEND_WIDTH = 10
+
+const BACKGROUND_MARGINS = { top: 5, right: 7, bottom: 5, left: 7 }
+
 function install(elem, width, height) {
 
   let component = d3.dispatch('change')
@@ -66,7 +72,7 @@ function install(elem, width, height) {
       let graticule = d3.geoGraticule()
 
       let laws_scale = d3.scaleThreshold()
-        .domain([1, 5, 10, 15, 20])
+        .domain([2, 5, 10, 15, 20])
         .range(scheme.schemeBlues[7].slice(1))
 
       let emissions_scale = d3.scaleLinear()
@@ -89,6 +95,8 @@ function install(elem, width, height) {
         focus(null)
       })
 
+      // map
+
       g.append('path')
         .attr('class', 'map-sphere')
         .datum({type: 'Sphere'})
@@ -109,44 +117,94 @@ function install(elem, width, height) {
             .attr('d', path)
             .attr('fill', 'lightgray')
 
+      // map legend
+
+      let legend_scale = d3.scaleLinear()
+        .domain([0, d3.max(d3.values(laws))])
+        .range([0, LEGEND_HEIGHT])
+
+      let legend_axis = d3.axisRight(legend_scale)
+        .tickSize(LEGEND_WIDTH+4)
+        .tickValues(laws_scale.domain())
+
+      let legend = svg.append('g')
+        .attr('class', 'legend')
+        .attr('transform', 'translate(' + [width - LEGEND_MARGINS.right - LEGEND_WIDTH, LEGEND_MARGINS.top] + ')')
+
+      legend.append('rect')
+        .attr('class', 'background')
+
+      legend.append('text')
+        .attr('y', '-1em')
+        .attr('fill', 'black')
+        .text('Laws')
+
+      legend.selectAll('.group')
+        .data(laws_scale.range().map((c) => {
+          let d = laws_scale.invertExtent(c)
+          if(d[0] == null) d[0] = legend_scale.domain()[0]
+          if(d[1] == null) d[1] = legend_scale.domain()[1]
+          return d
+        }))
+        .enter().append('rect')
+          .attr('class', 'group')
+          .attr('width', LEGEND_WIDTH)
+          .attr('y', (d) => legend_scale(d[0]))
+          .attr('height', (d) => legend_scale(d[1]) - legend_scale(d[0]))
+          .attr('fill', (d) => laws_scale(d[0]))
+
+      legend.call(legend_axis)
+
+      legend.select('.domain')
+        .remove()
+
+      // emissions bar
+
       let left_justify = (d) => (d.x0 + d.x1) / 2 < width / 2
       let emissions_bar = svg.append('g')
-          .attr('class', 'emissions_bar')
-          .attr('transform', 'translate(' + [ BAR_MARGINS.left, height - BAR_MARGINS.bottom - BAR_HEIGHT ] + ')')
-        .selectAll('.emissions')
+        .attr('class', 'emissions_bar')
+        .attr('transform', 'translate(' + [ BAR_MARGINS.left, height - BAR_MARGINS.bottom - BAR_HEIGHT ] + ')')
+
+      // TODO. move this into opaque stroke on each path?
+      emissions_bar.append('rect')
+        .attr('class', 'background')
+
+      let emissions = emissions_bar.selectAll('.emissions')
             .data(root.descendants().filter((d) => d.depth > 0))
           .enter().append('g')
             .attr('class', (d) => 'emissions country ' + d.data.iso)
 
-      emissions_bar.append('rect')
-        .attr('x', (d) => d.x0)
-        .attr('width', (d) => d.x1 - d.x0)
-        .attr('y', (d) => BAR_HEIGHT - d.depth * BAR_HEIGHT / (d.depth + d.height))
-        .attr('height', (d) => BAR_HEIGHT / (d.depth + d.height))
+      emissions.append('path')
+        .attr('d', (d) => {
+          let h = BAR_HEIGHT / (d.depth + d.height)
+          return 'M' + Math.round(d.x0) + ' ' + Math.round(BAR_HEIGHT - d.depth * h) +
+                 'H' + Math.round(d.x1) + 'v' + Math.round(h) +
+                 'H' + Math.round(d.x0) + 'Z'
+        })
 
-      let emissions_label = emissions_bar.append('g')
+      let emissions_label = emissions.append('g')
         .attr('class', 'label')
         .attr('transform', (d) => 'translate(' + (left_justify(d) ? d.x0 : d.x1) + ')')
         .attr('text-anchor', (d) => left_justify(d) ? 'start' : 'end')
 
       emissions_label.append('text')
-        .attr('dy', '-3.25em')
+        .attr('dy', '-3.75em')
         .text( (d) => d.data.name )
 
       emissions_label.append('text')
-        .attr('dy', '-1.75em')
+        .attr('dy', '-2.25em')
         .text( (d) => d.data.laws + ' laws')
 
       emissions_label.append('text')
-        .attr('dy', '-.5em')
+        .attr('dy', '-1em')
         .text( (d) => {
           let pct = d.data.emissions / emissions_scale.domain()[1]
-          return emissions_fmt(d.data.emissions) + ' MTCO2e [ ' + (pct < 0.001 ? '≤ 0.1%' : percent_fmt(pct)) + ' ]'
+          return emissions_fmt(d.data.emissions) + ' MtCO2e [ ' + (pct < 0.001 ? '≤ 0.1%' : percent_fmt(pct)) + ' ]'
         })
 
-      let emissions_axis = svg.append('g')
+      let emissions_axis = emissions_bar.append('g')
           .attr('class', 'axis')
-          .attr('transform', 'translate(' + [ BAR_MARGINS.left, height - BAR_MARGINS.bottom] + ')')
+          .attr('transform', 'translate(0,' + BAR_HEIGHT + ')')
 
       let ticks = emissions_axis.selectAll('.tick')
         .data(d3.range(0, 1.1, 0.1))
@@ -173,20 +231,31 @@ function install(elem, width, height) {
           .attr('x', 10)
           .attr('y', 10)
           .attr('dy', '1.75em')
-          .text((d) => emissions_fmt(emissions_scale.domain()[1] * d) + ' MTCO2e' )
+          .text((d) => emissions_fmt(emissions_scale.domain()[1] * d) + ' MtCO2e' )
 
       function update(sel, hover_id) {
         sel.selectAll('.map-feature.country path')
           .attr('fill', (d) => d.id !== hover_id ? laws_scale(d.properties.laws) : 'orange')
-        sel.selectAll('.emissions rect')
+        sel.selectAll('.emissions path')
           .attr('fill', (d) => d.id !== hover_id ? 'orange' : 'red')
         sel.selectAll('.emissions .label')
           .attr('opacity', (d) => d.id !== hover_id ? 0 : 1)
       }
 
+      // prettify heads-up display using opacity
+
+      d3.selectAll('rect.background').each(function() {
+        let bbox = this.parentNode.getBBox()
+        d3.select(this)
+          .attr('x', bbox.x - BACKGROUND_MARGINS.left)
+          .attr('y', bbox.y - BACKGROUND_MARGINS.top)
+          .attr('width', bbox.width + BACKGROUND_MARGINS.left + BACKGROUND_MARGINS.right)
+          .attr('height', bbox.height + BACKGROUND_MARGINS.top + BACKGROUND_MARGINS.bottom)
+        })
+
       // interaction
 
-      d3.selectAll('.country rect')
+      d3.selectAll('.country path')
         .on('click', function(d) {
           focus(d.id !== focus_id ? d : null)
           d3.event.stopPropagation()
@@ -221,7 +290,7 @@ function install(elem, width, height) {
            .data([null].concat(countries))
          .enter().append('option')
            .attr('value', (d) => d ? d.id : 'NONE')
-           .html((d) => d ? d.name : 'Select country')
+           .html((d) => d ? d.name : '...')
 
       function focus(d) {
         // Update application state

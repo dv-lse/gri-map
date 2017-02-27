@@ -1,17 +1,25 @@
 TODO
 ====
 
-  - [ ] Close mark on detail box
-  - [ ] Translation extent for zoom
-  - [ ] Opaque rectangle behind labels?
-  - [ ] Marks every 10%, no decimal in emissions
-
-  - [ ] Small countries / islands in GIS layer
   - [ ] Use NE tiny countries + EU for choropleth dots
-  - [ ] Legend (fixed location)
+  - [x] Legend (fixed location)
+  - [ ] Small countries / islands in GIS layer
 
+  - [ ] Continue using stratify + partition, or roll own solution?
+  - [x] Mouseover on map
+  - [ ] +/-/reset buttons for zoom
+  - [ ] Bounded panning
+  - [ ] Close mark on detail box
+
+  - [x] Marks every 10%, no decimal in emissions
+  - [ ] Map transition shouldn't be green
+  - [ ] Two background areas
+          fixed, behind emissions bar
+          temporary, behind all labels
+
+  - [ ] Zooming to EUR is broken
   - [ ] Unfocus on a country on any drag or zoom
-  - [ ] EU in dropdown, group in emissions bar
+  - [x] EU in dropdown, group in emissions bar
 
   - [ ] Remove globe circle & adjust background  NOT TO DO
   - [x] Basic zoom & drag
@@ -23,7 +31,7 @@ TODO
   - [x] Zoom to focused country
   - [x] Info box on focused country
   - [ ] Zoom-to-area bounding box needs tweaking
-  - [ ] Focus color remaining when zooming out
+  - [ ] Focus color remaining when zooming out  NOT TO DO
 
   - [ ] Move focus calculations to prepublish step  HALF DONE
 
