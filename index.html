@@ -24,7 +24,7 @@
     var detail = document.getElementById("gri-detail")
     visualisation.install(document.getElementById("gri-map"), 960, 600)
       .on("change", function(d) {
-        detail.src = d.url
+        detail.src = d ? d.url : ''
       })
   })
 </script>
