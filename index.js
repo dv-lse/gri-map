@@ -8,7 +8,7 @@ import * as scheme from 'd3-scale-chromatic'
 const DATAPOINT = 'data/emissions.json' //'http://www.lse.ac.uk/GranthamInstitute/wp-json/countries/v1/data/55783476/'
 const WORLD_MAP = 'world/50m.json'
 
-const BAR_MARGINS = { top: 0, right: 15, bottom: 65, left: 15 }
+const BAR_MARGINS = { top: 0, right: 25, bottom: 65, left: 20 }
 const BAR_HEIGHT = 20
 
 const LEGEND_MARGINS = { top: 50, right: 50, bottom: 20, left: 20 }
@@ -17,8 +17,6 @@ const LEGEND_WIDTH = 10
 const BACKGROUND_MARGINS = { top: 5, right: 7, bottom: 5, left: 7 }
 
 function install(elem, width, height) {
-
-  let component = d3.dispatch('change')
 
   // main application state
 
@@ -32,6 +30,7 @@ function install(elem, width, height) {
 
       // post-process countries dataset [ dropdown & emissions bar ]
 
+      countries.forEach( (d) => d.id = d.iso)
       countries.sort( (a,b) => d3.ascending(a.name, b.name) )
       let root = d3.stratify()
         .id((d) => d.id || d.iso)
@@ -50,9 +49,8 @@ function install(elem, width, height) {
       let by_iso = countries.reduce( (m, d) => (m[d.iso] = d, m), {} )
       features.forEach( (d) => {
         if(d.id in by_iso) {
-          let c = by_iso[d.id]
-          d.properties.laws = c.laws
-          d.properties.active_ids = [c.iso, c.parent_iso].filter((d) => d)
+          Object.assign(d.properties, by_iso[d.id])
+          d.url = d.properties.url
         }
       })
       features = features.filter((d) => d.properties.laws)
@@ -252,7 +250,7 @@ function install(elem, width, height) {
       function update(sel, hover_id) {
         sel.selectAll('.map-feature path')
           // TODO move logic into a D3 selector by class?  this only goes up one level
-          .attr('opacity', (d) => !hover_id || d.properties.active_ids.indexOf(hover_id) > -1 ? 1 : 0.2)
+          .attr('opacity', (d) => !hover_id || d.properties.iso == hover_id || d.properties.parent_iso == hover_id ? 1 : 0.2)
         sel.selectAll('.emissions path')
           .attr('fill', (d) => d.id !== hover_id ? 'orange' : 'red')
         sel.selectAll('.emissions .label')
@@ -300,18 +298,23 @@ function install(elem, width, height) {
         .append('select')
           .attr('class', 'map-select')
         .on('change', () => {
-          var iso = d3.event.target.value
-          focus(iso !== 'NONE' ? iso : null)
+          let iso = d3.event.target.value
+          focus(iso !== 'NONE' ? by_iso[iso] : null)
         })
 
       dropdown.selectAll('option')
            .data([null].concat(countries))
          .enter().append('option')
-           .attr('value', (d) => d ? d.id : 'NONE')
+           .attr('value', (d) => d ? d.iso : 'NONE')
            .html((d) => d ? d.name : '...')
+
+      let detail = d3.select(elem).append('iframe')
+        .attr('id', 'gri-detail')
+        .attr('src', '')
 
       function focus(d) {
         // Update application state
+        //   NB input object must have id & url properties
         //   NB does NOT fire a change event, so no loops
         focus_id = d ? d.id : null
         dropdown.property('value', focus_id || 'NONE')
@@ -322,7 +325,7 @@ function install(elem, width, height) {
           .duration(2000)
           .call(zoom.transform, zoomTransform(focus_id))
 
-        component.call('change', null, d)
+        detail.attr('src', d ? d.url : '')
       }
 
       // utility functions
@@ -363,8 +366,6 @@ function install(elem, width, height) {
         return { x: translate[0], y: translate[1], scale: scale }
       }
     })
-
-  return component
 }
 
 export { install }

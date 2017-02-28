@@ -1,6 +1,8 @@
 TODO
 ====
 
+  - [x] Move iframe code back to index.js (bc url is in data file)
+
   - [ ] Click on EU - zoom to what?
   - [ ] Click on tiny countries - zoom to what?  NOT NECESSARY
   - [ ] Legend must move to allow for detail box?
