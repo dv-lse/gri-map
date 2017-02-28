@@ -283,6 +283,7 @@ function install(elem, width, height) {
 
       let zoom = d3.zoom()
         .scaleExtent([0.9, 8])
+        .translateExtent([[-width/2,-height/2],[width/2,height/2]])
         .on('zoom', () => {
           let t = d3.event.transform
           g.attr('transform', t)

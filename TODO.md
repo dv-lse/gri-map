@@ -16,7 +16,7 @@ TODO
   - [ ] Continue using stratify + partition, or roll own solution?
   - [x] Mouseover on map
   - [ ] +/-/reset buttons for zoom
-  - [ ] Bounded panning
+  - [x] Bounded panning
   - [ ] Close mark on detail box
 
   - [x] Marks every 10%, no decimal in emissions
