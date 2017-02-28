@@ -1,10 +1,17 @@
 TODO
 ====
 
-  - [ ] Use NE tiny countries + EU for choropleth dots
+  - [ ] Click on EU - zoom to what?
+  - [ ] Click on tiny countries - zoom to what?
+
+  - [ ] EU hover is clunky: use partition object in GIS data model too?  or CSS selectors?
+
+  - [x] Use NE tiny countries + EU for choropleth dots
   - [x] Legend (fixed location)
-  - [ ] Small countries / islands in GIS layer
-  - [ ] Use land layer for continents; omit any features that are not countries
+  - [x] Small countries / islands in GIS layer
+  - [x] Use land layer for continents; omit any features that are not countries
+
+  - [ ] Stroke edge of tiny country circles?
 
   - [ ] Continue using stratify + partition, or roll own solution?
   - [x] Mouseover on map

@@ -20,7 +20,13 @@
   fill: transparent;
 }
 
-.map-feature {
+.map-land {
+  fill: lightgrey;
+  stroke: none;
+}
+
+.map-borders {
+  fill: none;
   stroke: #fff;
   stroke-width: .5px;
 }

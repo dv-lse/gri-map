@@ -45,11 +45,18 @@ function install(elem, width, height) {
       // post-process map [ move laws count into GIS dataset ]
 
       let features = topojson.feature(world, world.objects.countries).features
+      let land = topojson.feature(world, world.objects.land).features
+      let borders = topojson.feature(world, world.objects.borders).features
 
-      let laws = countries.reduce( (m, d) => (m[d.iso] = d.laws, m), {} )
+      let by_iso = countries.reduce( (m, d) => (m[d.iso] = d, m), {} )
       features.forEach( (d) => {
-        if(d.id in laws) { d.properties.laws = laws[d.id] }
+        if(d.id in by_iso) {
+          let c = by_iso[d.id]
+          d.properties.laws = c.laws
+          d.properties.active_ids = [c.iso, c.parent_iso].filter((d) => d)
+        }
       })
+      features = features.filter((d) => d.properties.laws)
 
       // visualisation
 
@@ -107,6 +114,11 @@ function install(elem, width, height) {
         .attr('class', 'map-graticule')
         .attr('d', path)
 
+      g.append('path')
+        .datum(land[0])
+        .attr('class', 'map-land')
+        .attr('d', path)
+
       g.append('g')
           .attr('class', 'map-features')
         .selectAll('.map-feature')
@@ -117,10 +129,15 @@ function install(elem, width, height) {
             .attr('d', path)
             .attr('fill', (d) => d.properties.laws ? laws_scale(d.properties.laws) : 'lightgray')
 
+      g.append('path')
+        .datum(borders[0])
+        .attr('class', 'map-borders')
+        .attr('d', path)
+
       // map legend
 
       let legend_scale = d3.scaleLinear()
-        .domain([0, d3.max(d3.values(laws))])
+        .domain([0, d3.max(features, (d) => d.properties.laws)])
         .range([0, LEGEND_HEIGHT])
 
       let legend_axis = d3.axisRight(legend_scale)
@@ -235,7 +252,8 @@ function install(elem, width, height) {
 
       function update(sel, hover_id) {
         sel.selectAll('.map-feature path')
-          .attr('opacity', (d) => !hover_id || d.id == hover_id ? 1 : 0.2)
+          // TODO move logic into a D3 selector by class?  this only goes up one level
+          .attr('opacity', (d) => !hover_id || d.properties.active_ids.indexOf(hover_id) > -1 ? 1 : 0.2)
         sel.selectAll('.emissions path')
           .attr('fill', (d) => d.id !== hover_id ? 'orange' : 'red')
         sel.selectAll('.emissions .label')

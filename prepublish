@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# cribbed from Mike Bostock [ https://github.com/topojson/world-atlas ], with minor alterations
+# cribbed from Mike Bostock [ https://github.com/topojson/world-atlas ], with alterations
 
 rm -rvf world
 
@@ -29,7 +29,10 @@ world() {
     | ndjson-map '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
     | geostitch -n \
     > build/features.json
-  geo2topo -q 1e5 -n countries=<(cat build/features.json build/points.json) > world/$1.json
+  geo2topo -q 1e5 -n countries=<(cat build/features.json build/points.json) \
+    | topomerge --mesh -f 'a !== b' borders=countries \
+    | topomerge land=countries \
+    > world/$1.json
 }
 
 #world 10m
