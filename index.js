@@ -12,7 +12,6 @@ const BAR_MARGINS = { top: 0, right: 15, bottom: 65, left: 15 }
 const BAR_HEIGHT = 20
 
 const LEGEND_MARGINS = { top: 50, right: 50, bottom: 20, left: 20 }
-const LEGEND_HEIGHT = 200
 const LEGEND_WIDTH = 10
 
 const BACKGROUND_MARGINS = { top: 5, right: 7, bottom: 5, left: 7 }
@@ -138,7 +137,7 @@ function install(elem, width, height) {
 
       let legend_scale = d3.scaleLinear()
         .domain([0, d3.max(features, (d) => d.properties.laws)])
-        .range([0, LEGEND_HEIGHT])
+        .range([0, height / 2])
 
       let legend_axis = d3.axisRight(legend_scale)
         .tickSize(LEGEND_WIDTH+4)

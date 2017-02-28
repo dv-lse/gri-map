@@ -2,7 +2,10 @@ TODO
 ====
 
   - [ ] Click on EU - zoom to what?
-  - [ ] Click on tiny countries - zoom to what?
+  - [ ] Click on tiny countries - zoom to what?  NOT NECESSARY
+  - [ ] Legend must move to allow for detail box?
+
+  - [ ] Use admin0 countries GIS set instead of subunits?
 
   - [ ] EU hover is clunky: use partition object in GIS data model too?  or CSS selectors?
 
@@ -25,7 +28,6 @@ TODO
           fixed, behind emissions bar
           temporary, behind all labels
 
-  - [ ] Zooming to EUR is broken
   - [ ] Unfocus on a country on any drag or zoom
   - [x] EU in dropdown, group in emissions bar
 
