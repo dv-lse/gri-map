@@ -7,7 +7,7 @@ TODO
   - [ ] Click on tiny countries - zoom to what?  NOT NECESSARY
   - [ ] Legend must move to allow for detail box?
 
-  - [ ] Use admin0 countries GIS set instead of subunits?
+  - [x] Use admin0 countries GIS set instead of subunits?
 
   - [ ] EU hover is clunky: use partition object in GIS data model too?  or CSS selectors?
 

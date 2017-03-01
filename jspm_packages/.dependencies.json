@@ -218,10 +218,10 @@
     "d3-transition": "npm:d3-transition@1.0.3",
     "d3-voronoi": "npm:d3-voronoi@1.1.0",
     "d3-zoom": "npm:d3-zoom@1.1.0",
-    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
-    "process": "github:jspm/nodelibs-process@^0.1.0",
     "fs": "github:jspm/nodelibs-fs@^0.1.0",
-    "systemjs-json": "github:systemjs/plugin-json@^0.1.0"
+    "systemjs-json": "github:systemjs/plugin-json@^0.1.0",
+    "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0"
   },
   "npm:stream-browserify@1.0.0": {
     "inherits": "npm:inherits@~2.0.1",
