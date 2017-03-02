@@ -1,6 +1,11 @@
 TODO
 ====
 
+  - [x] Stroke edge of tiny country circles
+  - [x] Move circles out of GIS
+
+  - [ ] Collect slivers of emissions bar into 'Others' category
+
   - [x] Move iframe code back to index.js (bc url is in data file)
 
   - [ ] Click on EU - zoom to what?
@@ -15,8 +20,6 @@ TODO
   - [x] Legend (fixed location)
   - [x] Small countries / islands in GIS layer
   - [x] Use land layer for continents; omit any features that are not countries
-
-  - [ ] Stroke edge of tiny country circles?
 
   - [ ] Continue using stratify + partition, or roll own solution?
   - [x] Mouseover on map

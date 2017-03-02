@@ -1,37 +1,56 @@
 #!/bin/bash
 
-# cribbed from Mike Bostock [ https://github.com/topojson/world-atlas ], with alterations
+# based on Mike Bostock [ https://github.com/topojson/world-atlas ], with alterations
+
+# pre-compute a GIS dataset for the GRI world map
+
+# run 'npm install d3 d3-dsv' first to get libraries
+
+# output:
+#   (1) large countries are taken from Natural Earth's 50m dataset
+#   (2) tiny countries are taken from 110m dataset, with a choropleth point off to the side
+#   (3) hand-tweaked focus bounds over-ride those computed from the NE dataset
 
 rm -rvf world
 
-world_shp() {
-  mkdir -p build
+mkdir -p build world
 
-  curl -z build/ne_$1_admin_0_countries.zip -o build/ne_$1_admin_0_countries.zip http://naciscdn.org/naturalearth/$1/cultural/ne_$1_admin_0_countries.zip
-  unzip -od build build/ne_$1_admin_0_countries.zip
-  chmod a-x build/ne_$1_admin_0_map_subunits.*
-
-  curl -z build/ne_$1_admin_0_tiny_countries.zip -o build/ne_$1_admin_0_tiny_countries.zip http://naciscdn.org/naturalearth/$1/cultural/ne_$1_admin_0_tiny_countries.zip
-  unzip -od build build/ne_$1_admin_0_tiny_countries.zip
-  chmod a-x build/ne_$1_admin_0_tiny_countries.*
+download_ne() {
+  curl -z build/ne_$1_admin_0_$2.zip -o build/ne_$1_admin_0_$2.zip http://naciscdn.org/naturalearth/$1/cultural/ne_$1_admin_0_$2.zip
+  unzip -od build build/ne_$1_admin_0_$2.zip
+  chmod a-x build/ne_$1_admin_0_$2.*
 }
 
-world() {
-  world_shp $1
-  mkdir -p world
-  shp2json -n build/ne_$1_admin_0_tiny_countries.shp \
-    | ndjson-filter '(d.properties.homepart > 0)' \
-    | ndjson-map '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
-    > build/points.json
-  shp2json -n build/ne_$1_admin_0_countries.shp \
-    | ndjson-map '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
-    | geostitch -n \
-    > build/features.json
-  geo2topo -q 1e5 -n countries=<(cat build/features.json build/points.json) \
-    | topomerge --mesh -f 'a !== b' borders=countries \
-    | topomerge land=countries \
-    > world/$1.json
-}
+download_ne 50m countries
+download_ne 110m countries
+download_ne 110m tiny_countries
 
-#world 10m
-world 50m
+# tiny countries (mostly islands)
+
+shp2json -n build/ne_110m_admin_0_tiny_countries.shp \
+  | ndjson-filter '(d.properties.homepart > 0)' \
+  | ndjson-map -r d3 '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
+  > build/tiny_country_points.json
+#  | ndjson-map -r d3 '({id: d.properties.adm0_a3, color_point: d3.geoCentroid(d.geometry) })' \
+
+# focus bounds
+
+shp2json -n build/ne_110m_admin_0_countries.shp \
+  | ndjson-map -r d3 '({id: d.properties.adm0_a3, focus_bounds: d3.geoBounds(d.geometry) })' \
+  > build/focus_bounds.json
+
+# large country features
+
+shp2json -n build/ne_50m_admin_0_countries.shp \
+  | ndjson-map -r d3 '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
+  | geostitch -n \
+  > build/countries.json
+
+# final output is topography with layers for countries, land masses and country boundaries (mesh)
+
+geo2topo -q 1e5 -n \
+  countries=<(cat build/countries.json) \
+  choropleth_points=<(cat build/tiny_country_points.json) \
+  | topomerge --mesh -f 'a !== b' borders=countries \
+  | topomerge land=countries \
+  > world/map.json

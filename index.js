@@ -6,7 +6,7 @@ import {geoEckert3} from 'd3-geo-projection'
 import * as scheme from 'd3-scale-chromatic'
 
 const DATAPOINT = 'data/emissions.json' //'http://www.lse.ac.uk/GranthamInstitute/wp-json/countries/v1/data/55783476/'
-const WORLD_MAP = 'world/50m.json'
+const WORLD_MAP = 'world/map.json'
 
 const BAR_MARGINS = { top: 0, right: 25, bottom: 65, left: 20 }
 const BAR_HEIGHT = 20
@@ -43,17 +43,23 @@ function install(elem, width, height) {
       // post-process map [ move laws count into GIS dataset ]
 
       let features = topojson.feature(world, world.objects.countries).features
+      let choropleth_points = topojson.feature(world, world.objects.choropleth_points).features
       let land = topojson.feature(world, world.objects.land).features
       let borders = topojson.feature(world, world.objects.borders).features
 
       let by_iso = countries.reduce( (m, d) => (m[d.iso] = d, m), {} )
-      features.forEach( (d) => {
+      features.forEach(merge_dataset)
+      choropleth_points.forEach(merge_dataset)
+
+      features = features.filter((d) => d.properties.laws)
+      choropleth_points = choropleth_points.filter((d) => d.properties.laws)
+
+      function merge_dataset(d) {
         if(d.id in by_iso) {
           Object.assign(d.properties, by_iso[d.id])
           d.url = d.properties.url
         }
-      })
-      features = features.filter((d) => d.properties.laws)
+      }
 
       // visualisation
 
@@ -121,15 +127,29 @@ function install(elem, width, height) {
         .attr('class', 'map-land')
         .attr('d', path)
 
-      g.append('g')
+      let map_features = g.append('g')
           .attr('class', 'map-features')
-        .selectAll('.map-feature')
+
+      map_features.selectAll('.map-feature')
           .data(features)
          .enter().append('g')
           .attr('class', (d) => 'map-feature country ' + d.id)
           .append('path')
+            .attr('class', 'geometry')
             .attr('d', path)
             .attr('fill', (d) => laws_scale(d.properties.laws))
+
+      map_features.selectAll('.circles')
+         .data(choropleth_points)
+        .enter().append('g')
+         .attr('class', (d) => 'circle country ' + d.id)
+         .append('circle')
+           .attr('class', 'geometry')
+           .attr('transform', (d) => 'translate(' + path.centroid(d) + ')')
+           .attr('fill', (d) => laws_scale(d.properties.laws))
+           .attr('r', 5)
+           .attr('stroke-width', 1.5)
+           .attr('stroke', 'white')
 
       g.append('path')
         .datum(borders[0])
@@ -194,6 +214,7 @@ function install(elem, width, height) {
             .attr('class', (d) => 'emissions country ' + d.data.iso)
 
       emissions.append('path')
+        .attr('class', 'geometry')
         .attr('d', (d) => {
           let h = BAR_HEIGHT / (d.depth + d.height)
           return 'M' + Math.round(d.x0) + ' ' + Math.round(BAR_HEIGHT - d.depth * h) +
@@ -253,7 +274,7 @@ function install(elem, width, height) {
           .text((d) => emissions_fmt(emissions_scale.domain()[1] * d) + ' MtCO2e' )
 
       function update(sel, hover_id) {
-        sel.selectAll('.map-feature path')
+        sel.selectAll('.map-features .country .geometry')
           // TODO move logic into a D3 selector by class?  this only goes up one level
           .attr('fill', (d) => d.properties.iso == hover_id || d.properties.parent_iso == hover_id ? 'orange' : laws_scale(d.properties.laws))
         sel.selectAll('.emissions path')
@@ -275,7 +296,7 @@ function install(elem, width, height) {
 
       // interaction
 
-      d3.selectAll('.country path')
+      d3.selectAll('.country .geometry')
         .on('click', function(d) {
           focus(d.id !== focus_id ? d : null)
           d3.event.stopPropagation()
@@ -289,7 +310,10 @@ function install(elem, width, height) {
         .on('zoom', () => {
           let t = d3.event.transform
           g.attr('transform', t)
-           .style('stroke-width', (1 / t.k) + 'px')
+            .style('stroke-width', (1 / t.k) + 'px')
+          g.selectAll('.country circle')
+            .attr('r', (8 / t.k) + 'px')
+            .style('stroke-width', (1 / t.k) + 'px')
         })
 
       svg.call(update, null)
