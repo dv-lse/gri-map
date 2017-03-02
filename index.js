@@ -66,12 +66,17 @@ function install(elem, width, height) {
       let g = svg.append('g')
 
       let projection = geoEckert3()
-        .scale(180)
+        .scale(100)               // arbitrary; reqd to since unit scale causes floating point errors
         .translate([0, 0])
         .precision(.1)
 
       let path = d3.geoPath()
         .projection(projection)
+
+      let sphere_bounds = path.bounds({type:'Sphere'})
+      // (scale that fits entire globe to width x height)
+      let sphere_scale = Math.min(width / (sphere_bounds[1][0] - sphere_bounds[0][0]),
+                                  height / (sphere_bounds[1][1] - sphere_bounds[0][1]))
 
       let graticule = d3.geoGraticule()
 
@@ -121,10 +126,10 @@ function install(elem, width, height) {
         .selectAll('.map-feature')
           .data(features)
          .enter().append('g')
-          .attr('class', (d) => 'map-feature ' + d.id + (d.properties.laws >= 0 ? ' country' : ''))
+          .attr('class', (d) => 'map-feature country ' + d.id)
           .append('path')
             .attr('d', path)
-            .attr('fill', (d) => d.properties.laws ? laws_scale(d.properties.laws) : 'lightgray')
+            .attr('fill', (d) => laws_scale(d.properties.laws))
 
       g.append('path')
         .datum(borders[0])
@@ -250,7 +255,7 @@ function install(elem, width, height) {
       function update(sel, hover_id) {
         sel.selectAll('.map-feature path')
           // TODO move logic into a D3 selector by class?  this only goes up one level
-          .attr('opacity', (d) => !hover_id || d.properties.iso == hover_id || d.properties.parent_iso == hover_id ? 1 : 0.2)
+          .attr('fill', (d) => d.properties.iso == hover_id || d.properties.parent_iso == hover_id ? 'orange' : laws_scale(d.properties.laws))
         sel.selectAll('.emissions path')
           .attr('fill', (d) => d.id !== hover_id ? 'orange' : 'red')
         sel.selectAll('.emissions .label')
@@ -279,17 +284,17 @@ function install(elem, width, height) {
         .on('mouseleave', () => focus_id || highlight(null) )
 
       let zoom = d3.zoom()
-        .scaleExtent([0.9, 8])
-        .translateExtent([[-width/2,-height/2],[width/2,height/2]])
+        .translateExtent(sphere_bounds)
+        .scaleExtent([sphere_scale, sphere_scale * 20])
         .on('zoom', () => {
           let t = d3.event.transform
           g.attr('transform', t)
-           .style('stroke-width', 1.5 / t.k + 'px')
+           .style('stroke-width', (1 / t.k) + 'px')
         })
 
       svg.call(update, null)
          .call(zoom)
-         .call(zoom.transform, zoomTransform(null))
+         .call(zoom.transform, zoomTransformFit())
 
 
       // HTML controls
@@ -321,26 +326,18 @@ function install(elem, width, height) {
 
         highlight(focus_id)
 
+        let feature = features.find((d) => d.id === focus_id)
+
+        console.log(JSON.stringify([focus_id, d3.geoBounds(feature)]))
+
         let t = svg.transition('zoom')
           .duration(2000)
-          .call(zoom.transform, zoomTransform(focus_id))
+          .call(zoom.transform, zoomTransformFit(focus_id ? d3.geoBounds(feature) : null))
 
-        detail.attr('src', d ? d.url : '')
+//        detail.attr('src', d ? d.url : '')
       }
 
       // utility functions
-
-      function zoomTransform(id) {
-        if(id) {
-          let c = focus_coords(id)
-          return d3.zoomIdentity
-             .translate(c.x, c.y)
-             .scale(c.scale)
-        } else {
-          return d3.zoomIdentity
-                   .translate(width/2, height/2)
-        }
-      }
 
       function highlight(id) {
         svg.transition('highlight')
@@ -348,22 +345,19 @@ function install(elem, width, height) {
           .call(update, id)
       }
 
-      function focus_coords(id) {
-        // c.f. https://bl.ocks.org/iamkevinv/0a24e9126cd2fa6b283c6f2d774b69a2
+      function zoomTransformFit(bbox=null) {
+        let f = bbox ? {type: 'LineString', coordinates: bbox} : {type: 'Sphere'}
+        let b = path.bounds(f)
+        let k = .9 * Math.min(width / (b[1][0] - b[0][0]),
+                              height / (b[1][1] - b[0][1]))
+        let x = (b[0][0] + b[1][0]) / 2
+        let y = (b[0][1] + b[1][1]) / 2
 
-        let sel_features = features.filter( (d) => d.id === id )
-        let areas = sel_features.map(path.area)
-        let idx = d3.range(0,areas.length).sort((a,b) => d3.descending(areas[a], areas[b]))[0]
+        let t = d3.zoomIdentity
+          .translate(width / 2 - k * x, height / 2 - k * y)
+          .scale(k)
 
-        let bounds = path.bounds(sel_features[idx])
-        let dx = bounds[1][0] - bounds[0][0]
-        let dy = bounds[1][1] - bounds[0][1]
-        let x = (bounds[0][0] + bounds[1][0]) / 2
-        let y = (bounds[0][1] + bounds[1][1]) / 2
-        let scale = Math.max(1, Math.min(20, 0.9 / Math.max(dx / width, dy / height)))
-        let translate = [width / 4 - scale * x, height / 2 - scale * y]
-
-        return { x: translate[0], y: translate[1], scale: scale }
+        return t
       }
     })
 }

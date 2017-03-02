@@ -4,8 +4,6 @@
 
 rm -rvf world
 
-# "Map subunits: Countries subdivided by non-contiguous units. Lower-48 + DC, Alaska, Hawaii. Mainland metropolitan France, Corsica...."
-
 world_shp() {
   mkdir -p build
 
