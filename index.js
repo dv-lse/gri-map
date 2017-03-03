@@ -342,11 +342,19 @@ function install(elem, width, height) {
            .attr('value', (d) => d ? d.iso : 'NONE')
            .html((d) => d ? d.name : '...')
 
-      let detail = d3.select(elem).append('iframe')
-        .attr('id', 'gri-detail')
+      let detail = d3.select(elem)
+        .append('div')
+          .attr('id', 'gri-detail')
+          .attr('class', 'inactive')
+      detail.append('div')
+        .attr('class', 'close')
+        .on('click', () => focus(null))
+      detail.append('iframe')
         .attr('src', '')
 
       function focus(d) {
+        console.log(d)
+
         // Update application state
         //   NB input object must have id & url properties
         //   NB does NOT fire a change event, so no loops
@@ -361,7 +369,9 @@ function install(elem, width, height) {
           .duration(2000)
           .call(zoom.transform, zoomTransformFit(focus_id ? d3.geoBounds({type: 'FeatureCollection', features: matches}) : null))
 
-//        detail.attr('src', d ? d.url : '')
+        detail.attr('class', d && d.url ? 'active' : 'inactive')
+          .select('iframe')
+            .attr('src', d ? d.url : '')
       }
 
       // utility functions

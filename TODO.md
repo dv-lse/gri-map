@@ -8,24 +8,24 @@ TODO
 
   - [x] Move iframe code back to index.js (bc url is in data file)
 
-  - [ ] Click on EU - zoom to what?
+  - [x] Click on EU - zoom to what?
   - [ ] Click on tiny countries - zoom to what?  NOT NECESSARY
   - [ ] Legend must move to allow for detail box?
 
   - [x] Use admin0 countries GIS set instead of subunits?
 
-  - [ ] EU hover is clunky: use partition object in GIS data model too?  or CSS selectors?
+  - [x] EU hover is clunky: use partition object in GIS data model too?  or CSS selectors?
 
   - [x] Use NE tiny countries + EU for choropleth dots
   - [x] Legend (fixed location)
   - [x] Small countries / islands in GIS layer
   - [x] Use land layer for continents; omit any features that are not countries
 
-  - [ ] Continue using stratify + partition, or roll own solution?
+  - [x] Continue using stratify + partition, or roll own solution?
   - [x] Mouseover on map
   - [ ] +/-/reset buttons for zoom
   - [x] Bounded panning
-  - [ ] Close mark on detail box
+  - [x] Close mark on detail box
 
   - [x] Marks every 10%, no decimal in emissions
   - [x] Map transition shouldn't be green

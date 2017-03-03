@@ -22,14 +22,32 @@ body {
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 420px;
-  height: 420px;
   border: 2px solid gray;
   background: white;
 }
 
-#gri-detail[src=""] {
-  visibility: hidden;
+#gri-detail iframe {
+  width: 420px;
+  height: 420px;
+}
+
+#gri-detail.inactive {
+  display: none;
+}
+
+#gri-detail .close {
+  position: relative;
+  color: white;
+  background: lightgrey;
+  height: 25px;
+}
+
+#gri-detail .close::after {
+  position: absolute;
+  top: 0;
+  left: 95%;
+  content: '[x]';
+  cursor: pointer;
 }
 
 .background {
