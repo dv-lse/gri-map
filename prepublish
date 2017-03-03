@@ -22,22 +22,14 @@ download_ne() {
 }
 
 download_ne 50m countries
-download_ne 110m countries
-download_ne 110m tiny_countries
+download_ne 50m tiny_countries
 
 # tiny countries (mostly islands)
 
-shp2json -n build/ne_110m_admin_0_tiny_countries.shp \
+shp2json -n build/ne_50m_admin_0_tiny_countries.shp \
   | ndjson-filter '(d.properties.homepart > 0)' \
   | ndjson-map -r d3 '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
-  > build/tiny_country_points.json
-#  | ndjson-map -r d3 '({id: d.properties.adm0_a3, color_point: d3.geoCentroid(d.geometry) })' \
-
-# focus bounds
-
-shp2json -n build/ne_110m_admin_0_countries.shp \
-  | ndjson-map -r d3 '({id: d.properties.adm0_a3, focus_bounds: d3.geoBounds(d.geometry) })' \
-  > build/focus_bounds.json
+  > build/choropleth_points.json
 
 # large country features
 
@@ -50,7 +42,7 @@ shp2json -n build/ne_50m_admin_0_countries.shp \
 
 geo2topo -q 1e5 -n \
   countries=<(cat build/countries.json) \
-  choropleth_points=<(cat build/tiny_country_points.json) \
+  choropleth_points=<(cat build/choropleth_points.json) \
   | topomerge --mesh -f 'a !== b' borders=countries \
   | topomerge land=countries \
   > world/map.json

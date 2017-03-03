@@ -37,7 +37,10 @@ function install(elem, width, height) {
         .parentId((d) => d.id !== 'ROOT' ? d.parent_iso || 'ROOT' : undefined)
         (countries.concat({id:'ROOT'}))
 
-      root.eachAfter( (d) => d.value = d.children && d.children.length ? d3.sum(d.children, (v) => v.value) : d.data.emissions)
+      root.eachAfter( (d) => {
+          let sum = d.children && d.children.length ? d3.sum(d.children, (v) => v.value) : 0
+          d.value = Math.max(sum, d.data.emissions || 0)  // if computed value is higher use it (to fit elements visually)
+        })
         .sort( (a,b) => d3.descending(a.value, b.value) )
 
       // post-process map [ move laws count into GIS dataset ]
@@ -47,7 +50,7 @@ function install(elem, width, height) {
       let land = topojson.feature(world, world.objects.land).features
       let borders = topojson.feature(world, world.objects.borders).features
 
-      let by_iso = countries.reduce( (m, d) => (m[d.iso] = d, m), {} )
+      let by_iso = root.descendants().reduce( (m, d) => (m[d.id] = d, m), {} )
       features.forEach(merge_dataset)
       choropleth_points.forEach(merge_dataset)
 
@@ -56,7 +59,9 @@ function install(elem, width, height) {
 
       function merge_dataset(d) {
         if(d.id in by_iso) {
-          Object.assign(d.properties, by_iso[d.id])
+          let node = by_iso[d.id]
+          Object.assign(d.properties, node.data)
+          d.properties.all_ids = node.ancestors().reduce( (m, d) => (m[d.id] = true, m), {} )
           d.url = d.properties.url
         }
       }
@@ -276,7 +281,7 @@ function install(elem, width, height) {
       function update(sel, hover_id) {
         sel.selectAll('.map-features .country .geometry')
           // TODO move logic into a D3 selector by class?  this only goes up one level
-          .attr('fill', (d) => d.properties.iso == hover_id || d.properties.parent_iso == hover_id ? 'orange' : laws_scale(d.properties.laws))
+          .attr('fill', (d) => d.properties.all_ids[hover_id] ? 'orange' : laws_scale(d.properties.laws))
         sel.selectAll('.emissions path')
           .attr('fill', (d) => d.id !== hover_id ? 'orange' : 'red')
         sel.selectAll('.emissions .label')
@@ -301,8 +306,8 @@ function install(elem, width, height) {
           focus(d.id !== focus_id ? d : null)
           d3.event.stopPropagation()
         })
-        .on('mouseenter', (d) => focus_id || highlight(d.id) )
-        .on('mouseleave', () => focus_id || highlight(null) )
+        .on('mouseenter', (d) => highlight(d.id || focus_id) )
+        .on('mouseleave', () => highlight(focus_id) )
 
       let zoom = d3.zoom()
         .translateExtent(sphere_bounds)
@@ -350,13 +355,11 @@ function install(elem, width, height) {
 
         highlight(focus_id)
 
-        let feature = features.find((d) => d.id === focus_id)
-
-        console.log(JSON.stringify([focus_id, d3.geoBounds(feature)]))
+        let matches = features.filter((d) => d.properties.all_ids[focus_id])
 
         let t = svg.transition('zoom')
           .duration(2000)
-          .call(zoom.transform, zoomTransformFit(focus_id ? d3.geoBounds(feature) : null))
+          .call(zoom.transform, zoomTransformFit(focus_id ? d3.geoBounds({type: 'FeatureCollection', features: matches}) : null))
 
 //        detail.attr('src', d ? d.url : '')
       }
