@@ -5,11 +5,14 @@ TODO
   - [x] Move circles out of GIS
 
   - [ ] Collect slivers of emissions bar into 'Others' category
+  - [ ] Corollary:  Visual problems with smallest lines in emissions bar
 
+  - [ ] iframe not opening for initial dropdown selection
   - [x] Move iframe code back to index.js (bc url is in data file)
 
   - [x] Click on EU - zoom to what?
-  - [ ] Click on tiny countries - zoom to what?  NOT NECESSARY
+  - [ ] Click on tiny countries - zoom to what?
+        * Stop zooming at standard scale extent
   - [ ] Legend must move to allow for detail box?
 
   - [x] Use admin0 countries GIS set instead of subunits?
@@ -52,6 +55,24 @@ TODO
 
   - [ ] Live search match to countries  NOT TO DO
 
+
+COUNTRIES REQUIRING HAND-TWEAKS
+===============================
+
+  - [ ] ECU Ecuador
+  - [ ] ESP Spain
+  - [ ] EUR European Union (bc of French Guyana... remove it?)
+  - [ ] FJI   Fiji
+  - [ ] FRA France (")
+  - [ ] IOA ???
+  - [ ] KIR ???
+  - [ ] NLD Netherlands
+  - [ ] NZL New Zealand
+  - [ ] NOR Norway
+  - [ ] PRT Portugal
+  - [ ] RUS Russia
+  - [ ] ZAF South Africa
+  - [ ] USA United States of America
 
 LATER
 =====

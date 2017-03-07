@@ -8,7 +8,7 @@
 
 # output:
 #   (1) large countries are taken from Natural Earth's 50m dataset
-#   (2) tiny countries are taken from 110m dataset, with a choropleth point off to the side
+#   (2) tiny countries have a choropleth point off to the side
 #   (3) hand-tweaked focus bounds over-ride those computed from the NE dataset
 
 rm -rvf world

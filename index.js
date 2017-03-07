@@ -7,6 +7,7 @@ import * as scheme from 'd3-scale-chromatic'
 
 const DATAPOINT = 'data/emissions.json' //'http://www.lse.ac.uk/GranthamInstitute/wp-json/countries/v1/data/55783476/'
 const WORLD_MAP = 'world/map.json'
+const FOCUS_BOUNDS = 'data/focus_bounds.csv'
 
 const BAR_MARGINS = { top: 0, right: 25, bottom: 65, left: 20 }
 const BAR_HEIGHT = 20
@@ -25,7 +26,8 @@ function install(elem, width, height) {
   queue.queue()
     .defer(d3.json, WORLD_MAP)
     .defer(d3.json, DATAPOINT)
-    .await( (err, world, countries) => {
+    .defer(d3.csv, FOCUS_BOUNDS)
+    .await( (err, world, countries, focus_bounds) => {
       if(err) throw err
 
       // post-process countries dataset [ dropdown & emissions bar ]
@@ -42,6 +44,8 @@ function install(elem, width, height) {
           d.value = Math.max(sum, d.data.emissions || 0)  // if computed value is higher use it (to fit elements visually)
         })
         .sort( (a,b) => d3.descending(a.value, b.value) )
+
+      focus_bounds = focus_bounds.reduce( (m, d) => (m[d.iso] = [[+d.left,+d.bottom],[+d.right,+d.top]], m), {})
 
       // post-process map [ move laws count into GIS dataset ]
 
@@ -147,12 +151,12 @@ function install(elem, width, height) {
       map_features.selectAll('.circles')
          .data(choropleth_points)
         .enter().append('g')
-         .attr('class', (d) => 'circle country ' + d.id)
+         .attr('class', (d) => '  country ' + d.id)
          .append('circle')
            .attr('class', 'geometry')
            .attr('transform', (d) => 'translate(' + path.centroid(d) + ')')
            .attr('fill', (d) => laws_scale(d.properties.laws))
-           .attr('r', 5)
+           .attr('r', 10)
            .attr('stroke-width', 1.5)
            .attr('stroke', 'white')
 
@@ -281,7 +285,7 @@ function install(elem, width, height) {
       function update(sel, hover_id) {
         sel.selectAll('.map-features .country .geometry')
           // TODO move logic into a D3 selector by class?  this only goes up one level
-          .attr('fill', (d) => d.properties.all_ids[hover_id] ? 'orange' : laws_scale(d.properties.laws))
+          .attr('fill', (d) => d.properties.all_ids && d.properties.all_ids[hover_id] ? 'orange' : laws_scale(d.properties.laws))
         sel.selectAll('.emissions path')
           .attr('fill', (d) => d.id !== hover_id ? 'orange' : 'red')
         sel.selectAll('.emissions .label')
@@ -311,13 +315,13 @@ function install(elem, width, height) {
 
       let zoom = d3.zoom()
         .translateExtent(sphere_bounds)
-        .scaleExtent([sphere_scale, sphere_scale * 20])
+        .scaleExtent([sphere_scale * .95, sphere_scale * 40])
         .on('zoom', () => {
           let t = d3.event.transform
           g.attr('transform', t)
             .style('stroke-width', (1 / t.k) + 'px')
           g.selectAll('.country circle')
-            .attr('r', (8 / t.k) + 'px')
+            .attr('r', (10 / t.k) + 'px')
             .style('stroke-width', (1 / t.k) + 'px')
         })
 
@@ -353,8 +357,6 @@ function install(elem, width, height) {
         .attr('src', '')
 
       function focus(d) {
-        console.log(d)
-
         // Update application state
         //   NB input object must have id & url properties
         //   NB does NOT fire a change event, so no loops
@@ -363,15 +365,25 @@ function install(elem, width, height) {
 
         highlight(focus_id)
 
-        let matches = features.filter((d) => d.properties.all_ids[focus_id])
+        // TODO.  simplify logic...
+        let matches = features.concat(choropleth_points).filter((d) => d.properties.all_ids[focus_id])
+          .map((f) => focus_bounds[f.id] ? {type: 'Feature', geometry: { type: 'MultiPoint', coordinates: focus_bounds[f.id] }} : f)
+        let bounds = d3.geoBounds({type: 'FeatureCollection', features: matches})
+        let zoomTransform = zoomTransformFit(focus_id ? bounds : null, zoom.scaleExtent())
+
+        console.log(JSON.stringify(matches))
+        console.log(JSON.stringify(bounds))
+        console.log(JSON.stringify(zoomTransform))
 
         let t = svg.transition('zoom')
           .duration(2000)
-          .call(zoom.transform, zoomTransformFit(focus_id ? d3.geoBounds({type: 'FeatureCollection', features: matches}) : null))
+          .call(zoom.transform, zoomTransform)
 
+/*
         detail.attr('class', d && d.url ? 'active' : 'inactive')
           .select('iframe')
             .attr('src', d ? d.url : '')
+*/
       }
 
       // utility functions
@@ -382,11 +394,14 @@ function install(elem, width, height) {
           .call(update, id)
       }
 
-      function zoomTransformFit(bbox=null) {
+      function zoomTransformFit(bbox=null, scaleExtent=null) {
         let f = bbox ? {type: 'LineString', coordinates: bbox} : {type: 'Sphere'}
         let b = path.bounds(f)
-        let k = .9 * Math.min(width / (b[1][0] - b[0][0]),
-                              height / (b[1][1] - b[0][1]))
+        let k = Math.min(width / (b[1][0] - b[0][0]),
+                         height / (b[1][1] - b[0][1]))
+
+        k = scaleExtent ? Math.max(scaleExtent[0], Math.min(scaleExtent[1], k)) : k
+
         let x = (b[0][0] + b[1][0]) / 2
         let y = (b[0][1] + b[1][1]) / 2
 
