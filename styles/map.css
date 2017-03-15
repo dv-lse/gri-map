@@ -39,13 +39,6 @@
   cursor: pointer;
 }
 
-/* total emissions bar */
-
-.emissions {
-  stroke: white;
-  stroke-width: 0.5;
-}
-
 .emissions .label {
   fill: black;
   stroke: none;
@@ -61,14 +54,17 @@
   fill: black;
 }
 
-.axis .tick text {
-  font-family: Roboto, sans-serif;
-  font-size: 8pt;
-  fill: black;
+.emissions .label .name {
+  font-size: 14pt;
 }
 
-.axis .tick line {
-  stroke: black;
+.emissions .label .unit {
+  fill: grey;
+  font-size: 9pt;
+}
+
+.legend {
+  pointer-events: none;
 }
 
 /* HTML dropdown */

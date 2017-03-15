@@ -9,7 +9,7 @@ const DATAPOINT = 'data/emissions.json' //'http://www.lse.ac.uk/GranthamInstitut
 const WORLD_MAP = 'world/map.json'
 const FOCUS_BOUNDS = 'data/focus_bounds.csv'
 
-const BAR_MARGINS = { top: 0, right: 25, bottom: 65, left: 20 }
+const BAR_MARGINS = { top: 0, right: 105, bottom: 65, left: 15 }
 const BAR_HEIGHT = 20
 
 const LEGEND_MARGINS = { top: 50, right: 50, bottom: 20, left: 20 }
@@ -105,8 +105,8 @@ function install(elem, width, height) {
 
       let partition = d3.partition()
         .size([width - BAR_MARGINS.left - BAR_MARGINS.right, BAR_HEIGHT])
-        .padding(1)
-        .round(true)
+        .padding(0)
+        .round(false)
 
       partition(root)
 
@@ -208,12 +208,10 @@ function install(elem, width, height) {
 
       // emissions bar
 
-      let left_justify = (d) => (d.x0 + d.x1) / 2 < width / 2
       let emissions_bar = svg.append('g')
         .attr('class', 'emissions_bar')
         .attr('transform', 'translate(' + [ BAR_MARGINS.left, height - BAR_MARGINS.bottom - BAR_HEIGHT ] + ')')
 
-      // TODO. move this into opaque stroke on each path?
       emissions_bar.append('rect')
         .attr('class', 'background')
 
@@ -227,60 +225,68 @@ function install(elem, width, height) {
         .attr('d', (d) => {
           let h = BAR_HEIGHT / (d.depth + d.height)
           return 'M' + Math.round(d.x0) + ' ' + Math.round(BAR_HEIGHT - d.depth * h) +
-                 'H' + Math.round(d.x1) + 'v' + Math.round(h) +
+                 'H' + Math.round(Math.max(d.x1-1, d.x0+1)) + 'v' + Math.round(h - 1) +
                  'H' + Math.round(d.x0) + 'Z'
         })
 
       let emissions_label = emissions.append('g')
         .attr('class', 'label')
-        .attr('transform', (d) => 'translate(' + (left_justify(d) ? d.x0 : d.x1) + ')')
-        .attr('text-anchor', (d) => left_justify(d) ? 'start' : 'end')
+        .attr('transform', (d) => 'translate(' + Math.min(d.x0 + 50, (d.x0 + d.x1) / 2) + ')')
 
       emissions_label.append('text')
-        .attr('dy', '-3.75em')
+        .attr('class', 'name')
+        .attr('y', '-.5em')
+        .attr('x', -5)
+        .attr('text-anchor', 'middle')
         .text( (d) => d.data.name )
 
-      emissions_label.append('text')
-        .attr('dy', '-2.25em')
-        .text( (d) => d.data.laws + ' laws')
+      let laws_label = emissions_label.append('text')
+        .attr('y', BAR_HEIGHT)
+        .attr('dy', '1.5em')
 
-      emissions_label.append('text')
-        .attr('dy', '-1em')
+      laws_label.append('tspan')
+        .attr('text-anchor', 'end')
+        .attr('x', -5)
+        .text( (d) => d.data.laws)
+
+      laws_label.append('tspan')
+        .attr('class', 'unit')
+        .attr('text-anchor', 'start')
+        .attr('x', 5)
+        .text('laws')
+
+      let raw_emissions_label = emissions_label.append('text')
+        .attr('y', BAR_HEIGHT)
+        .attr('dy', '2.75em')
+
+      raw_emissions_label.append('tspan')
+        .attr('text-anchor', 'end')
+        .attr('x', -5)
+        .text( (d) => emissions_fmt(d.data.emissions))
+
+      raw_emissions_label.append('tspan')
+        .attr('class', 'unit')
+        .attr('text-anchor', 'start')
+        .attr('x', 5)
+        .text('MtCO2e')
+
+      let percent_emissions_label = emissions_label.append('text')
+        .attr('y', BAR_HEIGHT)
+        .attr('dy', '4em')
+
+      percent_emissions_label.append('tspan')
+        .attr('text-anchor', 'end')
+        .attr('x', -5)
         .text( (d) => {
           let pct = d.data.emissions / emissions_scale.domain()[1]
-          return emissions_fmt(d.data.emissions) + ' MtCO2e [ ' + (pct < 0.001 ? '≤ 0.1%' : percent_fmt(pct)) + ' ]'
+          return pct < 0.001 ? '≤ 0.1%' : percent_fmt(pct)
         })
 
-      let emissions_axis = emissions_bar.append('g')
-          .attr('class', 'axis')
-          .attr('transform', 'translate(0,' + BAR_HEIGHT + ')')
-
-      let ticks = emissions_axis.selectAll('.tick')
-        .data(d3.range(0, 1.1, 0.1))
-        .enter().append('g')
-          .attr('class', 'tick')
-          .attr('text-anchor', 'end')
-          .attr('transform', (i) => 'translate(' + (emissions_scale.range()[1] * i) + ')')
-
-      ticks.append('line')
-        .attr('x1', 0.5)
-        .attr('x2', 0.5)
-        .attr('y1', 2)
-        .attr('y2', 8)
-
-      ticks.filter((d,i) => i % 2 === 0)
-        .append('text')
-          .attr('x', 10)
-          .attr('y', 10)
-          .attr('dy', '0.7em')
-          .text(d3.format('.0%'))
-
-      ticks.filter((i) => i === 1)
-        .append('text')
-          .attr('x', 10)
-          .attr('y', 10)
-          .attr('dy', '1.75em')
-          .text((d) => emissions_fmt(emissions_scale.domain()[1] * d) + ' MtCO2e' )
+      percent_emissions_label.append('tspan')
+        .attr('class', 'unit')
+        .attr('text-anchor', 'start')
+        .attr('x', 5)
+        .text('of global emissions')
 
       function update(sel, hover_id) {
         sel.selectAll('.map-features .country .geometry')
@@ -321,7 +327,7 @@ function install(elem, width, height) {
           g.attr('transform', t)
             .style('stroke-width', (1 / t.k) + 'px')
           g.selectAll('.country circle')
-            .attr('r', (10 / t.k) + 'px')
+            .attr('r', (7.5 / t.k) + 'px')
             .style('stroke-width', (1 / t.k) + 'px')
         })
 
@@ -370,11 +376,6 @@ function install(elem, width, height) {
           .map((f) => focus_bounds[f.id] ? {type: 'Feature', geometry: { type: 'MultiPoint', coordinates: focus_bounds[f.id] }} : f)
         let bounds = d3.geoBounds({type: 'FeatureCollection', features: matches})
         let zoomTransform = zoomTransformFit(focus_id ? bounds : null, zoom.scaleExtent())
-
-        console.log(JSON.stringify(matches))
-        console.log(JSON.stringify(bounds))
-        console.log(JSON.stringify(zoomTransform))
-
         let t = svg.transition('zoom')
           .duration(2000)
           .call(zoom.transform, zoomTransform)
@@ -397,8 +398,8 @@ function install(elem, width, height) {
       function zoomTransformFit(bbox=null, scaleExtent=null) {
         let f = bbox ? {type: 'LineString', coordinates: bbox} : {type: 'Sphere'}
         let b = path.bounds(f)
-        let k = Math.min(width / (b[1][0] - b[0][0]),
-                         height / (b[1][1] - b[0][1]))
+        let k = 0.95 * Math.min(width / (b[1][0] - b[0][0]),
+                                height / (b[1][1] - b[0][1]))
 
         k = scaleExtent ? Math.max(scaleExtent[0], Math.min(scaleExtent[1], k)) : k
 
