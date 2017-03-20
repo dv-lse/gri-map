@@ -1,25 +1,6 @@
-body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-#wrapper {
-  margin: 0 auto;
-  width: 960px;
-}
-
-#content {
-  margin-top:20px;
-  position: relative;
-}
-
-svg.map {
-  border: 1px black dotted;
-}
+/* GRI demo API application CSS */
 
 #gri-map {
-/*  position: absolute; */
 }
 
 #gri-detail {
@@ -52,13 +33,4 @@ svg.map {
   left: 95%;
   content: '[x]';
   cursor: pointer;
-}
-
-.background {
-  fill: white;
-  opacity: 0.6;
-}
-.legend .background {
-  opacity: 0.8;
-  stroke: lightgray;
 }

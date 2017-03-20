@@ -6,20 +6,22 @@
 <title>GRI Map</title>
 <link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed' rel='stylesheet' type='text/css'>
 
-<link href='styles/styles.css' rel='stylesheet' type='text/css'>
-<link href='styles/map.css' rel='stylesheet' type='text/css'>
+<div id="gri-map"></div>
 
+<!-- production version
+<script src='build.js'></script>
+<script>
+  var elem = document.getElementById("gri-map")
+  GRIMap.install(elem, 960, 600)
+</script>
+
+<!-- development version -->
 <script src="jspm_packages/system.js"></script>
 <script src="config.js"></script>
-
-<div id="wrapper">
-  <div id="content">
-    <div id="gri-map"></div>
-  </div>
-</div>
-
 <script>
-  System.import("index.js").then( function(visualisation) {
-    visualisation.install(document.getElementById("gri-map"), 960, 600)
-  })
+  var elem = document.getElementById("gri-map")
+  SystemJS.import('index.js').then( (GRIMap) => {
+    GRIMap.install(elem, 960, 600)
+})
+
 </script>
