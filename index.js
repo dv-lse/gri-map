@@ -8,7 +8,8 @@ import * as scheme from 'd3-scale-chromatic'
 import './styles/styles.css!'
 import './styles/map.css!'
 
-const DATAPOINT = 'http://www.lse.ac.uk/GranthamInstitute/wp-json/countries/v1/data/55783476/'
+const DEFAULT_DATAPOINT = '/data/emissions.json'
+
 const WORLD_MAP = 'world/map.json'
 const FOCUS_BOUNDS = 'data/focus_bounds.csv'
 
@@ -20,17 +21,17 @@ const LEGEND_WIDTH = 10
 
 const BACKGROUND_MARGINS = { top: 5, right: 7, bottom: 5, left: 7 }
 
-function install(elem, width, height) {
+function install(elem, width, height, datapoint=null) {
 
   // main application state
 
   let focus_id = null
 
   queue.queue()
+    .defer(d3.json, datapoint || DEFAULT_DATAPOINT)
     .defer(d3.json, WORLD_MAP)
-    .defer(d3.json, DATAPOINT)
     .defer(d3.csv, FOCUS_BOUNDS)
-    .await( (err, world, countries, focus_bounds) => {
+    .await( (err, countries, world, focus_bounds) => {
       if(err) throw err
 
       // post-process countries dataset [ dropdown & emissions bar ]

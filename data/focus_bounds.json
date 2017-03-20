@@ -1,0 +1,11 @@
+[{"iso":"ECU","left":-81,"bottom":-5,"right":-74,"top":1},
+ {"iso":"ESP","left":-8,"bottom":35,"right":4,"top":44},
+ {"iso":"FJI","left":175,"bottom":-18,"right":180,"top":-15},
+ {"iso":"FRA","left":-4,"bottom":42,"right":8,"top":52},
+ {"iso":"NLD","left":"3.5","bottom":50,"right":"7.5","top":54},
+ {"iso":"NOR","left":4,"bottom":"57.5","right":31,"top":71},
+ {"iso":"NZL","left":166,"bottom":-47,"right":178,"top":-33},
+ {"iso":"PRT","left":-10,"bottom":37,"right":-6,"top":42},
+ {"iso":"RUS","left":26,"bottom":41,"right":60,"top":70},
+ {"iso":"ZAF","left":16,"bottom":-35,"right":32,"top":-22},
+ {"iso":"USA","left":-123,"bottom":51,"right":-67,"top":24}]
