@@ -8,7 +8,7 @@ import * as scheme from 'd3-scale-chromatic'
 import './styles/styles.css!'
 import './styles/map.css!'
 
-const DATAPOINT = 'data/emissions.json' //'http://www.lse.ac.uk/GranthamInstitute/wp-json/countries/v1/data/55783476/'
+const DATAPOINT = 'http://www.lse.ac.uk/GranthamInstitute/wp-json/countries/v1/data/55783476/'
 const WORLD_MAP = 'world/map.json'
 const FOCUS_BOUNDS = 'data/focus_bounds.csv'
 
