@@ -383,11 +383,9 @@ function install(elem, width, height) {
           .duration(2000)
           .call(zoom.transform, zoomTransform)
 
-/*
         detail.attr('class', d && d.url ? 'active' : 'inactive')
           .select('iframe')
             .attr('src', d ? d.url : '')
-*/
       }
 
       // utility functions
