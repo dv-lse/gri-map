@@ -4,6 +4,8 @@ TODO
   - [x] Stroke edge of tiny country circles
   - [x] Move circles out of GIS
 
+  - [ ] iframe CSS positions via window not map's right edge
+
   - [ ] Collect slivers of emissions bar into 'Others' category
   - [ ] Corollary:  Visual problems with smallest lines in emissions bar
 

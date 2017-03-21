@@ -1,12 +1,18 @@
 #!/bin/bash
 
-git checkout gh-pages
-git rebase master
+if [[ -z $(git status -s) ]]
+then
+  git checkout gh-pages
+  git rebase master
 
-jspm bundle index.js --inject --minify
+  jspm bundle index.js --inject --minify
 
-git add config.js build.*
-git commit --amend --no-edit
-git push github gh-pages --force
+  git add config.js build.*
+  git commit --amend --no-edit
+  git push github gh-pages --force
 
-git checkout master
+  git checkout master
+else
+  echo "Cannot stage with local changes in process" 1>&2
+  exit 1
+fi

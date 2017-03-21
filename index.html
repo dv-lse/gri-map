@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<meta charset='UTF-8'>
+<meta charset="UTF-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>GRI Map</title>
-<link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed' rel='stylesheet' type='text/css'>
 
 <div id="gri-map"></div>
-
-<!-- production version
-<script src='build.js'></script>
-<script>
-  var elem = document.getElementById("gri-map")
-  GRIMap.install(elem, 960, 600, '/GranthamInstitute/wp-json/countries/v1/data/55783476/')
-</script>
--->
 
 <!-- development version -->
 <script src="jspm_packages/system.js"></script>
 <script src="config.js"></script>
 <script>
   var elem = document.getElementById("gri-map")
-  SystemJS.import('index.js').then( (GRIMap) => {
+  SystemJS.import("index.js").then( function(GRIMap) {
     GRIMap.install(elem, 960, 600)
 })
-
 </script>
+
+<!-- production version
+<script src="build.js"></script>
+<script>
+  var elem = document.getElementById("gri-map")
+  GRIMap.install(elem, 960, 600, "/GranthamInstitute/wp-json/countries/v1/data/55783476/")
+</script>
+-->

@@ -2,11 +2,10 @@
   "jspm": {
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.32",
-      "d3": "npm:d3@^4.4.0",
+      "d3": "npm:d3@^4.7.3",
       "d3-geo-projection": "npm:d3-geo-projection@^1.2.1",
-      "d3-queue": "npm:d3-queue@^3.0.3",
       "d3-scale-chromatic": "npm:d3-scale-chromatic@^1.1.0",
-      "d3-zoom": "npm:d3-zoom@^1.1.0",
+      "json": "github:systemjs/plugin-json@^0.3.0",
       "topojson-client": "npm:topojson-client@^2.1.0"
     },
     "devDependencies": {
@@ -16,7 +15,9 @@
     }
   },
   "scripts": {
-    "prepublish": "bash prepublish"
+    "prepublish": "bash prepublish",
+    "stage": "bash stage",
+    "build": "jspm bundle-sfx index.js - d3 --inject --minify --global-name GRIMap"
   },
   "devDependencies": {
     "jspm": "^0.16.48",

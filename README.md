@@ -1,22 +1,8 @@
-Staging deploy to Github Pages
-==============================
+GRI Map Tool
+============
 
-git checkout gh-pages
-git rebase master
+* Compilation scripts
 
-jspm bundle index.js --inject --minify
-
-git add config.js build.*
-git commit --amend --no-edit
-git push github gh-pages --force
-
-
-
-
-Staging bundle for HT
-=====================
-
-git checkout gh-pages
-git rebase master
-
-jspm bundle-sfx index.js  --inject --minify --global-name GRIMap
+npm run prepublish  # downloads and builds GIS world
+npm run stage       # uploads to staging server
+npm run build       # generates production bundle

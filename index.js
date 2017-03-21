@@ -1,17 +1,16 @@
 import * as d3 from 'd3'
 import * as topojson from 'topojson-client'
 
-import * as queue from 'd3-queue'
 import {geoEckert3} from 'd3-geo-projection'
 import * as scheme from 'd3-scale-chromatic'
 
 import './styles/styles.css!'
 import './styles/map.css!'
 
-const DEFAULT_DATAPOINT = '/data/emissions.json'
+import world from './world/map.json!json'
+import focus_bounds from './data/focus_bounds.json!json'
 
-const WORLD_MAP = 'world/map.json'
-const FOCUS_BOUNDS = 'data/focus_bounds.csv'
+const DEFAULT_DATAPOINT = 'data/emissions.json'
 
 const BAR_MARGINS = { top: 0, right: 105, bottom: 65, left: 15 }
 const BAR_HEIGHT = 20
@@ -21,17 +20,16 @@ const LEGEND_WIDTH = 10
 
 const BACKGROUND_MARGINS = { top: 5, right: 7, bottom: 5, left: 7 }
 
+
 function install(elem, width, height, datapoint=null) {
 
   // main application state
 
   let focus_id = null
 
-  queue.queue()
-    .defer(d3.json, datapoint || DEFAULT_DATAPOINT)
-    .defer(d3.json, WORLD_MAP)
-    .defer(d3.csv, FOCUS_BOUNDS)
-    .await( (err, countries, world, focus_bounds) => {
+  let focus_bounds_map = focus_bounds.reduce( (m, d) => (m[d.iso] = [[+d.left,+d.bottom],[+d.right,+d.top]], m), {})
+
+  d3.json(datapoint || DEFAULT_DATAPOINT, (err, countries) => {
       if(err) throw err
 
       // post-process countries dataset [ dropdown & emissions bar ]
@@ -48,8 +46,6 @@ function install(elem, width, height, datapoint=null) {
           d.value = Math.max(sum, d.data.emissions || 0)  // if computed value is higher use it (to fit elements visually)
         })
         .sort( (a,b) => d3.descending(a.value, b.value) )
-
-      focus_bounds = focus_bounds.reduce( (m, d) => (m[d.iso] = [[+d.left,+d.bottom],[+d.right,+d.top]], m), {})
 
       // post-process map [ move laws count into GIS dataset ]
 
@@ -377,7 +373,7 @@ function install(elem, width, height, datapoint=null) {
 
         // TODO.  simplify logic...
         let matches = features.concat(choropleth_points).filter((d) => d.properties.all_ids[focus_id])
-          .map((f) => focus_bounds[f.id] ? {type: 'Feature', geometry: { type: 'MultiPoint', coordinates: focus_bounds[f.id] }} : f)
+          .map((f) => focus_bounds_map[f.id] ? {type: 'Feature', geometry: { type: 'MultiPoint', coordinates: focus_bounds_map[f.id] }} : f)
         let bounds = d3.geoBounds({type: 'FeatureCollection', features: matches})
         let zoomTransform = zoomTransformFit(focus_id ? bounds : null, zoom.scaleExtent())
         let t = svg.transition('zoom')
