@@ -4,7 +4,6 @@ import * as topojson from 'topojson-client'
 import {geoEckert3} from 'd3-geo-projection'
 import * as scheme from 'd3-scale-chromatic'
 
-import './styles/styles.css!'
 import './styles/map.css!'
 
 import world from './world/map.json!json'
@@ -18,10 +17,10 @@ const BAR_HEIGHT = 20
 const LEGEND_MARGINS = { top: 50, right: 50, bottom: 20, left: 20 }
 const LEGEND_WIDTH = 10
 
+const DETAIL_MARGIN = { top: 20, right: 35, bottom: 100, left: 0 }
+
 const BACKGROUND_MARGINS = { top: 5, right: 7, bottom: 5, left: 7 }
 
-const DETAIL_WIDTH = 425
-const DETAIL_MARGIN_RIGHT = 15
 
 function install(elem, width, height, datapoint=null) {
 
@@ -30,6 +29,11 @@ function install(elem, width, height, datapoint=null) {
   let focus_id = null
 
   let focus_bounds_map = focus_bounds.reduce( (m, d) => (m[d.iso] = [[+d.left,+d.bottom],[+d.right,+d.top]], m), {})
+
+  let detail_dimensions = [
+    (width - DETAIL_MARGIN.right - DETAIL_MARGIN.left) / 2,
+    height - BAR_MARGINS.bottom - BAR_HEIGHT * 5 - 30
+  ]
 
   d3.json(datapoint || DEFAULT_DATAPOINT, (err, countries) => {
       if(err) throw err
@@ -358,11 +362,13 @@ function install(elem, width, height, datapoint=null) {
         .append('div')
           .attr('id', 'gri-detail')
           .attr('class', 'inactive')
-          .style('left', (width - DETAIL_WIDTH - DETAIL_MARGIN_RIGHT) + 'px')
+          .style('left', (width - detail_dimensions[0] - DETAIL_MARGIN.right) + 'px')
       detail.append('div')
         .attr('class', 'close')
         .on('click', () => focus(null))
       detail.append('iframe')
+        .style('width', detail_dimensions[0] + 'px')                                  // NB allow for scrollbars
+        .style('height', detail_dimensions[1] + 'px')
         .attr('src', '')
 
       function focus(d) {
@@ -378,7 +384,15 @@ function install(elem, width, height, datapoint=null) {
         let matches = features.concat(choropleth_points).filter((d) => d.properties.all_ids[focus_id])
           .map((f) => focus_bounds_map[f.id] ? {type: 'Feature', geometry: { type: 'MultiPoint', coordinates: focus_bounds_map[f.id] }} : f)
         let bounds = d3.geoBounds({type: 'FeatureCollection', features: matches})
-        let zoomTransform = zoomTransformFit(focus_id ? bounds : null, zoom.scaleExtent())
+
+        let zoomTransform
+
+        if(focus_id) {
+          zoomTransform = zoomTransformFit(bounds, zoom.scaleExtent(), [width - detail_dimensions[0], height])
+        } else {
+          zoomTransform = zoomTransformFit(null, zoom.scaleExtent(), [width, height])
+        }
+
         let t = svg.transition('zoom')
           .duration(2000)
           .call(zoom.transform, zoomTransform)
@@ -396,11 +410,14 @@ function install(elem, width, height, datapoint=null) {
           .call(update, id)
       }
 
-      function zoomTransformFit(bbox=null, scaleExtent=null) {
+      function zoomTransformFit(bbox=null, scaleExtent=null, dims=null) {
         let f = bbox ? {type: 'LineString', coordinates: bbox} : {type: 'Sphere'}
         let b = path.bounds(f)
-        let k = 0.95 * Math.min(width / (b[1][0] - b[0][0]),
-                                height / (b[1][1] - b[0][1]))
+
+        dims = dims || [width, height]
+
+        let k = 0.9 * Math.min(dims[0] / (b[1][0] - b[0][0]),
+                                dims[1] / (b[1][1] - b[0][1]))
 
         k = scaleExtent ? Math.max(scaleExtent[0], Math.min(scaleExtent[1], k)) : k
 
@@ -408,7 +425,7 @@ function install(elem, width, height, datapoint=null) {
         let y = (b[0][1] + b[1][1]) / 2
 
         let t = d3.zoomIdentity
-          .translate(width / 2 - k * x, height / 2 - k * y)
+          .translate(dims[0] / 2 - k * x, dims[1] / 2 - k * y)
           .scale(k)
 
         return t

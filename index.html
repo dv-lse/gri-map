@@ -5,15 +5,17 @@
 
 <title>GRI Map</title>
 
+<link href='styles/styles.css' rel='stylesheet' type='text/css'>
+
 <div id="gri-map"></div>
 
-<!-- documentation:  production version
-<script src="build.js"></script>
+<!-- production: run from javascript bundle
+<script src="https://dv-lse.github.io/gri-map/dist/gri-map.js"></script>
 <script>
   var elem = document.getElementById("gri-map")
   GRIMap.install(elem, 960, 600, "/GranthamInstitute/wp-json/countries/v1/data/55783476/")
 </script>
--->
+ -->
 
 <!-- development and staging version -->
 <script src="jspm_packages/system.js"></script>
@@ -23,4 +25,5 @@
   SystemJS.import("index.js").then( function(GRIMap) {
     GRIMap.install(elem, 960, 600)
 })
+<!-- -->
 </script>

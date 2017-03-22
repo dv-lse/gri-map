@@ -4,12 +4,12 @@ TODO
   - [x] Stroke edge of tiny country circles
   - [x] Move circles out of GIS
 
-  - [ ] iframe CSS positions via window not map's right edge
+  - [x] iframe CSS positions via window not map's right edge
 
   - [x] Collect slivers of emissions bar into 'Others' category
   - [x] Corollary:  Visual problems with smallest lines in emissions bar
 
-  - [ ] iframe not opening for initial dropdown selection
+  - [x] iframe not opening for initial dropdown selection
   - [x] Move iframe code back to index.js (bc url is in data file)
 
   - [x] Click on EU - zoom to what?

@@ -78,15 +78,6 @@
   stroke: lightgray;
 }
 
-/* HTML dropdown */
-
-.map-select {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  user-select: none;
-}
-
 /* overlays */
 
 .background {

@@ -1,5 +1,7 @@
 /* GRI demo API application CSS */
 
+/* NB iframe dimensions are calculated dyamically from DV size */
+
 #gri-map {
 }
 
@@ -11,11 +13,6 @@
   background: white;
 }
 
-#gri-detail iframe {
-  width: 420px;
-  height: 420px;
-}
-
 #gri-detail.inactive {
   display: none;
 }
@@ -25,12 +22,22 @@
   color: white;
   background: lightgrey;
   height: 25px;
+  margin: 2px;
 }
 
 #gri-detail .close::after {
   position: absolute;
   top: 0;
-  left: 95%;
-  content: '[x]';
+  left: 90%;
+  content: '[ x ]';
   cursor: pointer;
+}
+
+/* HTML dropdown */
+
+.map-select {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  user-select: none;
 }
