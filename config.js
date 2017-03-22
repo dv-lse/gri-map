@@ -1,5 +1,5 @@
 System.config({
-  baseURL: "/",
+  baseURL: "/gri-map",
   defaultJSExtensions: true,
   transpiler: "babel",
   babelOptions: {

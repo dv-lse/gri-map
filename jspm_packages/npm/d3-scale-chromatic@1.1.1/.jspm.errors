@@ -1,0 +1,782 @@
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Accent.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Accent.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Accent.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Accent.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Accent.js:3:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Accent.js:3:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Accent.js:3:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Accent.js:3:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Dark2.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Dark2.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Dark2.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Dark2.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Dark2.js:3:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Dark2.js:3:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Dark2.js:3:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Dark2.js:3:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Paired.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Paired.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Paired.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Paired.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Paired.js:3:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Paired.js:3:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Paired.js:3:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Paired.js:3:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel1.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel1.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel1.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel1.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel1.js:3:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel1.js:3:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel1.js:3:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel1.js:3:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel2.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel2.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel2.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel2.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel2.js:3:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel2.js:3:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel2.js:3:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Pastel2.js:3:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set1.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set1.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set1.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set1.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set1.js:3:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set1.js:3:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set1.js:3:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set1.js:3:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set3.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set3.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set3.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set3.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set3.js:3:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set3.js:3:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set3.js:3:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set3.js:3:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set2.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set2.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set2.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set2.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set2.js:3:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set2.js:3:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set2.js:3:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/categorical/Set2.js:3:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/colors.js:1:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/colors.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/colors.js:1:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/colors.js:1:16: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/colors.js:1:24: Unexpected token (
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/colors.js:1:25: Unexpected token specifier
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:16:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:16:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:16:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/BrBG.js:16:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:16:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:16:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:16:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PiYG.js:16:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:16:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:16:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:16:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PRGn.js:16:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:16:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:16:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:16:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/PuOr.js:16:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:16:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:16:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:16:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdBu.js:16:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:16:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:16:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:16:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdGy.js:16:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:16:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:16:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:16:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlBu.js:16:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:16:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:16:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:16:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/RdYlGn.js:16:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:16:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:16:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:16:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/diverging/Spectral.js:16:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/ramp.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/ramp.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/ramp.js:1:35: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/ramp.js:3:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/ramp.js:3:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/ramp.js:3:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/ramp.js:3:16: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/ramp.js:3:24: Unexpected token (
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/ramp.js:3:25: Unexpected token scheme
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:1:31: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:2:41: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:3:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:3:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:3:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:3:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:5:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:5:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:5:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:5:16: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:5:24: Unexpected token (
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/rampClosed.js:5:25: Unexpected token range
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/scheme.js:1:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/scheme.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/scheme.js:1:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/scheme.js:1:16: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/scheme.js:1:24: Unexpected token (
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/scheme.js:1:25: Unexpected token ranges
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuGn.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/BuPu.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/GnBu.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBu.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/OrRd.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuBuGn.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/PuRd.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/RdPu.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGn.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlGnBu.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrBr.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-multi/YlOrRd.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Blues.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greens.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Greys.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Oranges.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Purples.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:1:15: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:2:13: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:2:18: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:14:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/src/sequential-single/Reds.js:14:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:1:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:1:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:1:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:1:39: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:2:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:2:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:2:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:2:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:2:38: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:3:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:3:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:3:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:3:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:3:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:3:39: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:4:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:4:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:4:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:4:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:4:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:4:40: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:5:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:5:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:5:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:5:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:5:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:5:40: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:6:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:6:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:6:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:6:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:6:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:6:37: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:7:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:7:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:7:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:7:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:7:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:7:37: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:8:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:8:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:8:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:8:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:8:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:8:37: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:9:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:9:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:9:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:9:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:9:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:9:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:9:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:9:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:10:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:10:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:10:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:10:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:10:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:10:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:10:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:10:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:11:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:11:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:11:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:11:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:11:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:11:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:11:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:11:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:12:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:12:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:12:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:12:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:12:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:12:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:12:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:12:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:13:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:13:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:13:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:13:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:13:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:13:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:13:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:13:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:14:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:14:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:14:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:14:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:14:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:14:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:14:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:14:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:15:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:15:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:15:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:15:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:15:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:15:46: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:15:49: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:15:68: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:16:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:16:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:16:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:16:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:16:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:16:46: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:16:49: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:16:68: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:17:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:17:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:17:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:17:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:17:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:17:48: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:17:51: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:17:72: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:18:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:18:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:18:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:18:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:18:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:18:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:18:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:18:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:19:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:19:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:19:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:19:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:19:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:19:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:19:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:19:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:20:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:20:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:20:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:20:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:20:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:20:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:20:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:20:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:21:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:21:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:21:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:21:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:21:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:21:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:21:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:21:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:22:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:22:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:22:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:22:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:22:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:22:46: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:22:49: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:22:68: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:23:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:23:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:23:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:23:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:23:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:23:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:23:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:23:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:24:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:24:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:24:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:24:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:24:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:24:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:24:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:24:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:25:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:25:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:25:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:25:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:25:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:25:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:25:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:25:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:26:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:26:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:26:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:26:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:26:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:26:46: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:26:49: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:26:68: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:27:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:27:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:27:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:27:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:27:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:27:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:27:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:27:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:28:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:28:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:28:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:28:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:28:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:28:46: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:28:49: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:28:68: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:29:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:29:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:29:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:29:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:29:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:29:46: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:29:49: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:29:68: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:30:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:30:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:30:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:30:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:30:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:30:45: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:30:48: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:30:66: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:31:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:31:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:31:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:31:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:31:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:31:46: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:31:49: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:31:68: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:32:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:32:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:32:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:32:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:32:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:32:45: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:32:48: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:32:66: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:33:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:33:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:33:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:33:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:33:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:33:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:33:50: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:33:70: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:34:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:34:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:34:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:34:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:34:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:34:44: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:34:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:34:64: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:35:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:35:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:35:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:35:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:35:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:35:47: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:35:50: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-scale-chromatic@1.1.1/index.js:35:70: Semi-colon expected

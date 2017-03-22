@@ -1,0 +1,1 @@
+module.exports = require("npm:d3-scale-chromatic@1.1.1/build/d3-scale-chromatic.js");

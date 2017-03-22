@@ -1,0 +1,1 @@
+module.exports = require("npm:d3-format@1.1.1/build/d3-format.js");

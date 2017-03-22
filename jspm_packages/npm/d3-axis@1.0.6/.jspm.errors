@@ -1,0 +1,29 @@
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/array.js:1:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/array.js:1:8: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:1:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:1:21: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:2:1: Unexpected reserved word import
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:2:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:2:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:2:22: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:157:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:157:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:161:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:161:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:165:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:165:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:169:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/axis.js:169:8: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/identity.js:1:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/identity.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/identity.js:1:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/identity.js:1:16: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/identity.js:1:24: Unexpected token (
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/src/identity.js:1:25: Unexpected token x
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/index.js:1:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/index.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-axis@1.0.6/index.js:6:8: Semi-colon expected

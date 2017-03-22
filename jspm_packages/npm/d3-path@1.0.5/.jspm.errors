@@ -1,0 +1,11 @@
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-path@1.0.5/src/path.js:130:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-path@1.0.5/src/path.js:130:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-path@1.0.5/src/path.js:130:8: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-path@1.0.5/src/path.js:130:16: Semi-colon expected
+
+MultipleErrors: /Users/yorkc/.jspm/packages/npm/d3-path@1.0.5/index.js:1:1: Unexpected reserved word export
+/Users/yorkc/.jspm/packages/npm/d3-path@1.0.5/index.js:1:8: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-path@1.0.5/index.js:1:9: Unexpected reserved word default
+/Users/yorkc/.jspm/packages/npm/d3-path@1.0.5/index.js:1:17: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-path@1.0.5/index.js:1:20: Semi-colon expected
+/Users/yorkc/.jspm/packages/npm/d3-path@1.0.5/index.js:1:31: Semi-colon expected
