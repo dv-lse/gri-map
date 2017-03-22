@@ -6,8 +6,8 @@ TODO
 
   - [ ] iframe CSS positions via window not map's right edge
 
-  - [ ] Collect slivers of emissions bar into 'Others' category
-  - [ ] Corollary:  Visual problems with smallest lines in emissions bar
+  - [x] Collect slivers of emissions bar into 'Others' category
+  - [x] Corollary:  Visual problems with smallest lines in emissions bar
 
   - [ ] iframe not opening for initial dropdown selection
   - [x] Move iframe code back to index.js (bc url is in data file)
