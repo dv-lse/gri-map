@@ -1,8 +1,9 @@
 # incidental files, never required for check-in
 .DS_Store
 # packaging / dev artifacts
-node_modules
-jspm_packages
-npm-debug.log
+/node_modules
+/jspm_packages
+/npm-debug.log
 # build products reqd for staging
-build*
+/build/*
+/gri-map.js*

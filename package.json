@@ -16,8 +16,7 @@
   },
   "scripts": {
     "prepublish": "bash prepublish",
-    "stage": "bash stage",
-    "build": "jspm bundle-sfx index.js - d3 --inject --minify --global-name GRIMap"
+    "build": "jspm bundle-sfx index.js gri-map.js --minify; mv gri-map.js.* dist"
   },
   "devDependencies": {
     "jspm": "^0.16.48",
