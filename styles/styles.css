@@ -6,8 +6,8 @@
 #gri-detail {
   position: absolute;
   top: 20px;
-  right: 20px;
-  border: 2px solid gray;
+  border: 1px solid lightgray;
+  padding: 2px;
   background: white;
 }
 

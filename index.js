@@ -20,6 +20,8 @@ const LEGEND_WIDTH = 10
 
 const BACKGROUND_MARGINS = { top: 5, right: 7, bottom: 5, left: 7 }
 
+const DETAIL_WIDTH = 425
+const DETAIL_MARGIN_RIGHT = 15
 
 function install(elem, width, height, datapoint=null) {
 
@@ -356,6 +358,7 @@ function install(elem, width, height, datapoint=null) {
         .append('div')
           .attr('id', 'gri-detail')
           .attr('class', 'inactive')
+          .style('left', (width - DETAIL_WIDTH - DETAIL_MARGIN_RIGHT) + 'px')
       detail.append('div')
         .attr('class', 'close')
         .on('click', () => focus(null))
