@@ -363,8 +363,10 @@ function install(elem, width, height, datapoint=null) {
           .attr('id', 'gri-detail')
           .attr('class', 'inactive')
           .style('left', (width - detail_dimensions[0] - DETAIL_MARGIN.right) + 'px')
-      detail.append('div')
+      detail.append('button')
         .attr('class', 'close')
+        .attr('type', 'button')
+        .html('x')
         .on('click', () => focus(null))
       detail.append('iframe')
         .style('width', detail_dimensions[0] + 'px')                                  // NB allow for scrollbars
