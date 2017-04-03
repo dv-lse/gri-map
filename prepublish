@@ -7,7 +7,7 @@
 # run 'npm install d3 d3-dsv' first to get libraries
 
 # output:
-#   (1) large countries are taken from Natural Earth's 50m dataset
+#   (1) large countries are taken from Natural Earth's 110m dataset
 #   (2) tiny countries have a choropleth point off to the side
 #   (3) hand-tweaked focus bounds over-ride those computed from the NE dataset
 
@@ -21,19 +21,19 @@ download_ne() {
   chmod a-x build/ne_$1_admin_0_$2.*
 }
 
-download_ne 50m countries
-download_ne 50m tiny_countries
+download_ne 110m countries
+download_ne 110m tiny_countries
 
 # tiny countries (mostly islands)
 
-shp2json -n build/ne_50m_admin_0_tiny_countries.shp \
+shp2json -n build/ne_110m_admin_0_tiny_countries.shp \
   | ndjson-filter '(d.properties.homepart > 0)' \
   | ndjson-map -r d3 '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
   > build/choropleth_points.json
 
 # large country features
 
-shp2json -n build/ne_50m_admin_0_countries.shp \
+shp2json -n build/ne_110m_admin_0_countries.shp \
   | ndjson-map -r d3 '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
   | geostitch -n \
   > build/countries.json
