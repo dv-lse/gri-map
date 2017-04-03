@@ -174,7 +174,7 @@ function install(elem, width, height, datapoint=null) {
       // map legend
 
       let legend_scale = d3.scaleLinear()
-        .domain([0, d3.max(features, (d) => d.properties.laws)])
+        .domain([0, d3.max(laws_scale.domain())])
         .range([0, height / 2])
 
       let legend_axis = d3.axisRight(legend_scale)
