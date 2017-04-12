@@ -222,7 +222,7 @@ function install(elem, width, height, datapoint=null) {
         .attr('class', 'background')
 
       let emissions = emissions_bar.selectAll('.emissions')
-            .data(root.descendants().filter((d) => d.depth > 0))
+            .data(root.descendants().filter((d) => d.depth > 0 && d.value > 0))
           .enter().append('g')
             .attr('class', (d) => 'emissions country ' + d.data.iso)
 
@@ -230,9 +230,9 @@ function install(elem, width, height, datapoint=null) {
         .attr('class', 'geometry')
         .attr('d', (d) => {
           let h = BAR_HEIGHT / (d.depth + d.height)
-          return 'M' + Math.round(d.x0) + ' ' + Math.round(BAR_HEIGHT - d.depth * h) +
-                 'H' + Math.round(Math.max(d.x1-1, d.x0+1)) + 'v' + Math.round(h - 1) +
-                 'H' + Math.round(d.x0) + 'Z'
+          return 'M' + Math.floor(d.x0) + ' ' + Math.floor(BAR_HEIGHT - d.depth * h) +
+                 'H' + Math.floor(Math.max(d.x1-1, d.x0+1)) + 'v' + Math.floor(h - 1) +
+                 'H' + Math.floor(d.x0) + 'Z'
         })
 
       let emissions_label = emissions.append('g')
