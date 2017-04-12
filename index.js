@@ -14,7 +14,7 @@ const DEFAULT_DATAPOINT = 'data/emissions.json'
 const BAR_MARGINS = { top: 0, right: 105, bottom: 65, left: 15 }
 const BAR_HEIGHT = 20
 
-const LEGEND_MARGINS = { top: 50, right: 50, bottom: 20, left: 20 }
+const LEGEND_MARGINS = { top: 15, right: 50, bottom: 20, left: 400 }
 const LEGEND_WIDTH = 10
 
 const DETAIL_MARGIN = { top: 20, right: 35, bottom: 100, left: 0 }
@@ -177,20 +177,22 @@ function install(elem, width, height, datapoint=null) {
         .domain([0, d3.max(laws_scale.domain())])
         .range([0, height / 2])
 
-      let legend_axis = d3.axisRight(legend_scale)
+      let legend_axis = d3.axisBottom(legend_scale)
         .tickSize(LEGEND_WIDTH+4)
         .tickValues(laws_scale.domain())
 
       let legend = svg.append('g')
         .attr('class', 'legend')
-        .attr('transform', 'translate(' + [width - LEGEND_MARGINS.right - LEGEND_WIDTH, LEGEND_MARGINS.top] + ')')
+        .attr('transform', 'translate(' + [LEGEND_MARGINS.left, LEGEND_MARGINS.top] + ')')
 
       legend.append('rect')
         .attr('class', 'background')
 
       legend.append('text')
-        .attr('y', '-1em')
+        .attr('x', '-1em')
+        .attr('dy', '1em')
         .attr('fill', 'black')
+        .attr('text-anchor', 'end')
         .text('Laws')
 
       legend.selectAll('.group')
@@ -202,9 +204,9 @@ function install(elem, width, height, datapoint=null) {
         }))
         .enter().append('rect')
           .attr('class', 'group')
-          .attr('width', LEGEND_WIDTH)
-          .attr('y', (d) => legend_scale(d[0]))
-          .attr('height', (d) => legend_scale(d[1]) - legend_scale(d[0]))
+          .attr('height', LEGEND_WIDTH)
+          .attr('x', (d) => legend_scale(d[0]))
+          .attr('width', (d) => legend_scale(d[1]) - legend_scale(d[0]))
           .attr('fill', (d) => laws_scale(d[0]))
 
       legend.call(legend_axis)
