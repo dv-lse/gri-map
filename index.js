@@ -14,7 +14,7 @@ const DEFAULT_DATAPOINT = 'data/emissions.json'
 const BAR_MARGINS = { top: 0, right: 105, bottom: 65, left: 15 }
 const BAR_HEIGHT = 20
 
-const LEGEND_MARGINS = { top: 15, right: 50, bottom: 20, left: 400 }
+const LEGEND_MARGINS = { top: 30, right: 50, bottom: 20, left: 550 }
 const LEGEND_WIDTH = 10
 
 const DETAIL_MARGIN = { top: 20, right: 35, bottom: 100, left: 0 }
