@@ -23,13 +23,6 @@
   stroke: none;
 }
 
-.map-bounds {
-  fill: pink;
-  stroke: grey;
-  opacity: 0.4;
-  pointer-events: none;
-}
-
 .map-borders {
   fill: none;
   stroke: #fff;

@@ -175,7 +175,7 @@ function install(elem, width, height, datapoint=null) {
 
       let legend_scale = d3.scaleLinear()
         .domain([0, d3.max(laws_scale.domain())])
-        .range([0, height / 2])
+        .range([0, width / 3])
 
       let legend_axis = d3.axisBottom(legend_scale)
         .tickSize(LEGEND_WIDTH+4)
@@ -183,7 +183,7 @@ function install(elem, width, height, datapoint=null) {
 
       let legend = svg.append('g')
         .attr('class', 'legend')
-        .attr('transform', 'translate(' + [LEGEND_MARGINS.left, LEGEND_MARGINS.top] + ')')
+        .attr('transform', 'translate(' + [width - LEGEND_MARGINS.right - legend_scale.range()[1], LEGEND_MARGINS.top] + ')')
 
       legend.append('rect')
         .attr('class', 'background')
