@@ -43,6 +43,13 @@
 
 /* emissions bar */
 
+.emissions_bar .label {
+  fill: black;
+  stroke: none;
+  font-family: sans-serif;
+  font-size: 9pt;
+}
+
 .emissions .label {
   fill: black;
   stroke: none;

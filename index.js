@@ -223,6 +223,13 @@ function install(elem, width, height, datapoint=null) {
       emissions_bar.append('rect')
         .attr('class', 'background')
 
+      emissions_bar.append('text')
+        .attr('class', 'label')
+        .attr('x', width - BAR_MARGINS.right)
+        .attr('dy', '1.1em')
+        .attr('text-anchor', 'start')
+        .text('Emissions')
+
       let emissions = emissions_bar.selectAll('.emissions')
             .data(root.descendants().filter((d) => d.depth > 0 && d.value > 0))
           .enter().append('g')
