@@ -228,7 +228,7 @@ function install(elem, width, height, datapoint=null) {
         .attr('x', width - BAR_MARGINS.right)
         .attr('dy', '1.1em')
         .attr('text-anchor', 'start')
-        .text('Emissions')
+        .text('Global emissions')
 
       let emissions = emissions_bar.selectAll('.emissions')
             .data(root.descendants().filter((d) => d.depth > 0 && d.value > 0))
@@ -385,6 +385,8 @@ function install(elem, width, height, datapoint=null) {
         .attr('src', '')
 
       function focus(id) {
+        d3.select(elem).selectAll('.arrow_box').remove()
+
         focus_id = id || null
         dropdown.property('value', focus_id || 'NONE')
         highlight(focus_id)
