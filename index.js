@@ -321,9 +321,11 @@ function install(elem, width, height, datapoint=null) {
 
       d3.selectAll('.country .geometry')
         .on('click', function(d) {
-          focus(d.id !== focus_id ? d : null)
+          focus(d.id !== focus_id ? d.id : null)
           d3.event.stopPropagation()
         })
+
+      d3.selectAll('.country .geometry')
         .on('mouseenter', (d) => highlight(d.id || focus_id) )
         .on('mouseleave', () => highlight(focus_id) )
 
@@ -351,7 +353,7 @@ function install(elem, width, height, datapoint=null) {
           .attr('class', 'map-select')
         .on('change', () => {
           let iso = d3.event.target.value
-          focus(iso !== 'NONE' ? by_iso[iso] : null)
+          focus(iso !== 'NONE' ? iso : null)
         })
 
       dropdown.selectAll('option')
@@ -375,13 +377,9 @@ function install(elem, width, height, datapoint=null) {
         .style('height', detail_dimensions[1] + 'px')
         .attr('src', '')
 
-      function focus(d) {
-        // Update application state
-        //   NB input object must have id & url properties
-        //   NB does NOT fire a change event, so no loops
-        focus_id = d ? d.id : null
+      function focus(id) {
+        focus_id = id || null
         dropdown.property('value', focus_id || 'NONE')
-
         highlight(focus_id)
 
         // TODO.  simplify logic...
@@ -401,9 +399,10 @@ function install(elem, width, height, datapoint=null) {
           .duration(2000)
           .call(zoom.transform, zoomTransform)
 
-        detail.attr('class', d && d.url ? 'active' : 'inactive')
+        let url = focus_id ? by_iso[focus_id].data.url : null
+        detail.attr('class', url ? 'active' : 'inactive')
           .select('iframe')
-            .attr('src', d ? d.url : '')
+            .attr('src', url || '')
       }
 
       // utility functions
