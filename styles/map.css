@@ -4,6 +4,8 @@
   position: absolute;
   top: 0;
   left: 0;
+  font-family: sans-serif;
+  font-size: 10pt;
 }
 
 .map-sphere {
@@ -39,18 +41,11 @@
 .emissions_bar .label {
   fill: black;
   stroke: none;
-  font-family: sans-serif;
-  font-size: 9pt;
 }
 
 .emissions .label {
   fill: black;
   stroke: none;
-}
-
-.emissions .label text {
-  font-family: sans-serif;
-  font-size: 10pt;
 }
 
 .emissions .label path {

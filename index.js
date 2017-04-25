@@ -14,12 +14,14 @@ const DEFAULT_DATAPOINT = 'data/emissions.json'
 const BAR_MARGINS = { top: 0, right: 105, bottom: 65, left: 15 }
 const BAR_HEIGHT = 20
 
-const LEGEND_MARGINS = { top: 30, right: 50, bottom: 20, left: 550 }
+const LEGEND_MARGINS = { top: 25, right: 45 }            /* left is calculated */
 const LEGEND_WIDTH = 10
 
-const DETAIL_MARGIN = { top: 20, right: 35, bottom: 100, left: 0 }
+const DETAIL_MARGIN = { top: 0, right: 35, bottom: 200 } /* left is calculated */
 
 const BACKGROUND_MARGINS = { top: 5, right: 7, bottom: 5, left: 7 }
+
+const FOCUS_MARGIN = 5
 
 
 function install(elem, width, height, datapoint=null) {
@@ -31,8 +33,8 @@ function install(elem, width, height, datapoint=null) {
   let focus_bounds_map = focus_bounds.reduce( (m, d) => (m[d.iso] = [[+d.left,+d.bottom],[+d.right,+d.top]], m), {})
 
   let detail_dimensions = [
-    (width - DETAIL_MARGIN.right - DETAIL_MARGIN.left) / 2,
-    height - BAR_MARGINS.bottom - BAR_HEIGHT * 5 - 30
+    (width - DETAIL_MARGIN.right) / 2,
+    height - DETAIL_MARGIN.top - DETAIL_MARGIN.bottom
   ]
 
   d3.json(datapoint || DEFAULT_DATAPOINT, (err, countries) => {
@@ -210,6 +212,8 @@ function install(elem, width, height, datapoint=null) {
           .attr('fill', (d) => laws_scale(d[0]))
 
       legend.call(legend_axis)
+        .selectAll('.tick line')
+        .attr('y1', -2)
 
       legend.select('.domain')
         .remove()
@@ -223,12 +227,21 @@ function install(elem, width, height, datapoint=null) {
       emissions_bar.append('rect')
         .attr('class', 'background')
 
-      emissions_bar.append('text')
+      let emissions_bar_label = emissions_bar.append('text')
+        .attr('transform', 'translate(' + [width - BAR_MARGINS.left - BAR_MARGINS.right, BAR_HEIGHT / 2] + ')')
         .attr('class', 'label')
-        .attr('x', width - BAR_MARGINS.left)
-        .attr('dy', '1.2em')
-        .attr('text-anchor', 'end')
-        .text('Global emissions')
+        .attr('text-anchor', 'begin')
+
+      emissions_bar_label.append('tspan')
+        .attr('x', 0)
+        .attr('dx', '1em')
+        .attr('dy', '-0.3em')
+        .text('Global')
+      emissions_bar_label.append('tspan')
+        .attr('x', 0)
+        .attr('y', '1em')
+        .attr('dx', '1em')
+        .text('Emissions')
 
       let emissions = emissions_bar.selectAll('.emissions')
             .data(root.descendants().filter((d) => d.depth > 0 && d.value > 0))
@@ -387,7 +400,7 @@ function install(elem, width, height, datapoint=null) {
       let popup = d3.select(elem)
         .append('div')
         .attr('class', 'arrow_box')
-        .html('Select a country from dropdown, or click on the map')
+        .html('Select a country from the dropdown, or click on the map')
         .style('opacity', 0)
         .on('click', () => popup.remove() )
 
@@ -411,9 +424,11 @@ function install(elem, width, height, datapoint=null) {
         let zoomTransform
 
         if(focus_id) {
-          zoomTransform = zoomTransformFit(bounds, zoom.scaleExtent(), [width - detail_dimensions[0], height])
+          zoomTransform = zoomTransformFit(bounds, zoom.scaleExtent(),
+                                           [detail_dimensions[0] - FOCUS_MARGIN * 2, height - FOCUS_MARGIN * 2])
         } else {
-          zoomTransform = zoomTransformFit(null, zoom.scaleExtent(), [width, height])
+          zoomTransform = zoomTransformFit(null, zoom.scaleExtent(),
+                                           [width - FOCUS_MARGIN * 2, height - FOCUS_MARGIN * 2])
         }
 
         let t = svg.transition('zoom')
