@@ -225,9 +225,9 @@ function install(elem, width, height, datapoint=null) {
 
       emissions_bar.append('text')
         .attr('class', 'label')
-        .attr('x', width - BAR_MARGINS.right)
-        .attr('dy', '1.1em')
-        .attr('text-anchor', 'start')
+        .attr('x', width - BAR_MARGINS.left)
+        .attr('dy', '1.2em')
+        .attr('text-anchor', 'end')
         .text('Global emissions')
 
       let emissions = emissions_bar.selectAll('.emissions')
@@ -384,8 +384,20 @@ function install(elem, width, height, datapoint=null) {
         .style('height', detail_dimensions[1] + 'px')
         .attr('src', '')
 
+      let popup = d3.select(elem)
+        .append('div')
+        .attr('class', 'arrow_box')
+        .html('Select a country from dropdown, or click on the map')
+        .style('opacity', 0)
+        .on('click', () => popup.remove() )
+
+      popup.transition()
+        .delay(750)
+        .duration(1500)
+        .style('opacity', 1)
+
       function focus(id) {
-        d3.select(elem).selectAll('.arrow_box').remove()
+        popup.remove()
 
         focus_id = id || null
         dropdown.property('value', focus_id || 'NONE')
