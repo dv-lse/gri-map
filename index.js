@@ -443,10 +443,10 @@ function install(elem, width, height, datapoint=null) {
 
       // utility functions
 
+      let timer
       function highlight(id) {
-        svg.transition('highlight')
-          .duration(500)
-          .call(update, id)
+        clearTimeout(timer)
+        timer = setTimeout(() => svg.call(update, id), 200)
       }
 
       function zoomTransformFit(bbox=null, scaleExtent=null, dims=null) {
