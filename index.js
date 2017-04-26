@@ -111,12 +111,16 @@ function install(elem, width, height, datapoint=null) {
         .domain([0, d3.sum(countries, (d) => d.emissions)])
         .range([0, width - BAR_MARGINS.left - BAR_MARGINS.right ])
 
+/*
       let partition = d3.partition()
         .size([width - BAR_MARGINS.left - BAR_MARGINS.right, BAR_HEIGHT])
         .padding(0)
         .round(false)
 
       partition(root)
+*/
+
+      d3.partition()(root)
 
       let percent_fmt = d3.format('.1%')
       let emissions_fmt = d3.format(',.1f')
@@ -220,6 +224,10 @@ function install(elem, width, height, datapoint=null) {
 
       // emissions bar
 
+      let x = d3.scaleLinear()
+        .domain([0,1])
+        .range([0, width - BAR_MARGINS.left - BAR_MARGINS.right])
+
       let emissions_bar = svg.append('g')
         .attr('class', 'emissions_bar')
         .attr('transform', 'translate(' + [ BAR_MARGINS.left, height - BAR_MARGINS.bottom - BAR_HEIGHT ] + ')')
@@ -243,31 +251,27 @@ function install(elem, width, height, datapoint=null) {
         .attr('dx', '1em')
         .text('Emissions')
 
-      emissions_bar.append('rect')
-        .attr('width', width - BAR_MARGINS.left - BAR_MARGINS.right + 1 )
-        .attr('height', BAR_HEIGHT + 1)
-        .attr('fill', 'white')
-
       let emissions = emissions_bar.selectAll('.emissions')
-            .data(root.descendants().filter((d) => d.depth > 0 && d.value > 0))
+            .data(root.descendants().filter((d) => d.depth > 0 && d.value > 0 && x(d.x1-d.x0) >= 1))
           .enter().append('g')
             .attr('class', (d) => 'emissions country ' + d.data.iso)
 
       emissions.append('path')
         .attr('class', 'geometry')
+        .attr('stroke-width', (d) => x(d.x1-d.x0) >= 1.0 ? 1.0 : 0)
         .attr('d', (d) => {
           let h = BAR_HEIGHT / (d.depth + d.height)
-          let x0 = Math.floor(d.x0) + 0.5
-          let y0 = Math.floor(BAR_HEIGHT - d.depth * h ) + 0.5
-          let x1 = Math.floor(Math.max(d.x1-1, d.x0+1)) + 0.5
+          let x0 = Math.round(x(d.x0))
+          let y0 = Math.round(BAR_HEIGHT - d.depth * h)
+          let x1 = Math.round(x(d.x1))
           return 'M' + x0 + ' ' + y0 +
-                 'H' + x1 + 'v' + Math.floor(h - 1) +
+                 'H' + x1 + 'v' + Math.round(h) +
                  'H' + x0 + 'Z'
         })
 
       let emissions_label = emissions.append('g')
         .attr('class', 'label')
-        .attr('transform', (d) => 'translate(' + Math.floor(Math.min(d.x0 + 50, (d.x0 + d.x1) / 2)) + ')')
+        .attr('transform', (d) => 'translate(' + x((d.x0 + d.x1) / 2) + ')')
 
       emissions_label.append('text')
         .attr('class', 'name')
