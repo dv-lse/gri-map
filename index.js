@@ -243,6 +243,11 @@ function install(elem, width, height, datapoint=null) {
         .attr('dx', '1em')
         .text('Emissions')
 
+      emissions_bar.append('rect')
+        .attr('width', width - BAR_MARGINS.left - BAR_MARGINS.right + 1 )
+        .attr('height', BAR_HEIGHT + 1)
+        .attr('fill', 'white')
+
       let emissions = emissions_bar.selectAll('.emissions')
             .data(root.descendants().filter((d) => d.depth > 0 && d.value > 0))
           .enter().append('g')
@@ -252,14 +257,17 @@ function install(elem, width, height, datapoint=null) {
         .attr('class', 'geometry')
         .attr('d', (d) => {
           let h = BAR_HEIGHT / (d.depth + d.height)
-          return 'M' + Math.floor(d.x0) + ' ' + Math.floor(BAR_HEIGHT - d.depth * h) +
-                 'H' + Math.floor(Math.max(d.x1-1, d.x0+1)) + 'v' + Math.floor(h - 1) +
-                 'H' + Math.floor(d.x0) + 'Z'
+          let x0 = Math.floor(d.x0) + 0.5
+          let y0 = Math.floor(BAR_HEIGHT - d.depth * h ) + 0.5
+          let x1 = Math.floor(Math.max(d.x1-1, d.x0+1)) + 0.5
+          return 'M' + x0 + ' ' + y0 +
+                 'H' + x1 + 'v' + Math.floor(h - 1) +
+                 'H' + x0 + 'Z'
         })
 
       let emissions_label = emissions.append('g')
         .attr('class', 'label')
-        .attr('transform', (d) => 'translate(' + Math.min(d.x0 + 50, (d.x0 + d.x1) / 2) + ')')
+        .attr('transform', (d) => 'translate(' + Math.floor(Math.min(d.x0 + 50, (d.x0 + d.x1) / 2)) + ')')
 
       emissions_label.append('text')
         .attr('class', 'name')

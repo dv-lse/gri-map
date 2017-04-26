@@ -43,6 +43,11 @@
   stroke: none;
 }
 
+.emissions path {
+  shape-rendering: crispEdges;
+  stroke: none;
+}
+
 .emissions .label {
   fill: black;
   stroke: none;
