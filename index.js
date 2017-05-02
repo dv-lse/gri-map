@@ -63,7 +63,11 @@ function install(elem, width, height, datapoint=null) {
       let borders = topojson.feature(world, world.objects.borders).features
 
       let by_iso = root.descendants().reduce( (m, d) => (m[d.id] = d, m), {} )
+
+      features = features.filter( (d) => d.id in by_iso)
       features.forEach(merge_dataset)
+
+      choropleth_points = choropleth_points.filter( (d) => d.id in by_iso)
       choropleth_points.forEach(merge_dataset)
 
       features = features.filter((d) => d.properties.laws)
@@ -435,7 +439,7 @@ function install(elem, width, height, datapoint=null) {
 
         let zoomTransform
 
-        if(focus_id) {
+        if(focus_id && matches.length) {
           zoomTransform = zoomTransformFit(bounds, zoom.scaleExtent(),
                                            [detail_dimensions[0] - FOCUS_MARGIN * 2, height - FOCUS_MARGIN * 2])
         } else {
