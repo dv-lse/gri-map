@@ -70,8 +70,12 @@ function install(elem, width, height, datapoint=null) {
       choropleth_points = choropleth_points.filter( (d) => d.id in by_iso)
       choropleth_points.forEach(merge_dataset)
 
-      features = features.filter((d) => d.properties.laws)
-      choropleth_points = choropleth_points.filter((d) => d.properties.laws)
+      let feature_ids = d3.set(features.map((d) => d.id).concat(choropleth_points.map((d) => d.id)))
+      let gis_extra_ids = feature_ids.values().filter((id) => !by_iso[id]).sort()
+      let data_extra_ids = d3.keys(by_iso).filter((id) => !feature_ids.has(id)).sort()
+
+      if(gis_extra_ids.length) console.log('in GIS, not in dataset: ' + gis_extra_ids)
+      if(data_extra_ids.length) console.log('in dataset, not in GIS: ' + data_extra_ids)
 
       function merge_dataset(d) {
         if(d.id in by_iso) {
