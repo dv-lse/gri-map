@@ -160,6 +160,11 @@ function install(elem, width, height, datapoint=null) {
             .attr('d', path)
             .attr('fill', (d) => laws_scale(d.properties.laws))
 
+      map_features.append('path')
+        .datum(borders[0])
+        .attr('class', 'map-borders')
+        .attr('d', path)
+
       map_features.selectAll('.circles')
          .data(choropleth_points)
         .enter().append('g')
@@ -171,11 +176,6 @@ function install(elem, width, height, datapoint=null) {
            .attr('r', 10)
            .attr('stroke-width', 1.5)
            .attr('stroke', 'white')
-
-      g.append('path')
-        .datum(borders[0])
-        .attr('class', 'map-borders')
-        .attr('d', path)
 
       // map legend
 
