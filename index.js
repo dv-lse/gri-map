@@ -90,6 +90,7 @@ function install(elem, width, height, datapoint=null) {
       // visualisation
 
       let svg = d3.select(elem)
+        .html('')                 // clear any loading spinners
         .append('svg')
           .attr('class', 'map')
           .attr('width', width)

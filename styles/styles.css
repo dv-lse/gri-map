@@ -35,3 +35,11 @@
   left: 10px;
   user-select: none;
 }
+
+/* Loader */
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
