@@ -119,15 +119,6 @@ function install(elem, width, height, datapoint=null) {
         .domain([0, d3.sum(countries, (d) => d.emissions)])
         .range([0, width - BAR_MARGINS.left - BAR_MARGINS.right ])
 
-/*
-      let partition = d3.partition()
-        .size([width - BAR_MARGINS.left - BAR_MARGINS.right, BAR_HEIGHT])
-        .padding(0)
-        .round(false)
-
-      partition(root)
-*/
-
       d3.partition()(root)
 
       let percent_fmt = d3.format('.1%')
