@@ -28,13 +28,13 @@ download_ne 110m tiny_countries
 
 shp2json -n build/ne_110m_admin_0_tiny_countries.shp \
   | ndjson-filter '(d.properties.homepart > 0)' \
-  | ndjson-map -r d3 '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
+  | ndjson-map -r d3 '(d.id = d.properties.iso_a3, delete d.properties, d)' \
   > build/choropleth_points.json
 
 # large country features
 
 shp2json -n build/ne_110m_admin_0_countries.shp \
-  | ndjson-map -r d3 '(d.id = d.properties.adm0_a3, delete d.properties, d)' \
+  | ndjson-map -r d3 '(d.id = d.properties.iso_a3, delete d.properties, d)' \
   | geostitch -n \
   > build/countries.json
 
