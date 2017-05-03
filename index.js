@@ -50,7 +50,7 @@ function install(elem, width, height, datapoint=null) {
         (countries.concat({id:'ROOT'}))
 
       root.eachAfter( (d) => {
-          let sum = d.children && d.children.length ? d3.sum(d.children, (v) => v.value) : 0
+          let sum = d.children && d.children.length ? d3.sum(d.children, (v) => Math.max(0, v.value)) : 0
           d.value = Math.max(sum, d.data.emissions || 0)  // if computed value is higher use it (to fit elements visually)
         })
         .sort( (a,b) => d3.descending(a.value, b.value) )
@@ -120,7 +120,12 @@ function install(elem, width, height, datapoint=null) {
         .domain([0, d3.sum(countries, (d) => d.emissions)])
         .range([0, width - BAR_MARGINS.left - BAR_MARGINS.right ])
 
-      d3.partition()(root)
+      let partition = d3.partition()
+              .size([width - BAR_MARGINS.left - BAR_MARGINS.right, BAR_HEIGHT])
+              .padding(1)
+              .round(true)
+
+      partition(root)
 
       let percent_fmt = d3.format('.1%')
       let emissions_fmt = d3.format(',.1f')
@@ -224,10 +229,6 @@ function install(elem, width, height, datapoint=null) {
 
       // emissions bar
 
-      let x = d3.scaleLinear()
-        .domain([0,1])
-        .range([0, width - BAR_MARGINS.left - BAR_MARGINS.right])
-
       let emissions_bar = svg.append('g')
         .attr('class', 'emissions_bar')
         .attr('transform', 'translate(' + [ BAR_MARGINS.left, height - BAR_MARGINS.bottom - BAR_HEIGHT ] + ')')
@@ -251,27 +252,31 @@ function install(elem, width, height, datapoint=null) {
         .attr('dx', '1em')
         .text('Emissions')
 
+      emissions_bar.append('rect')
+        .attr('width', width - BAR_MARGINS.left - BAR_MARGINS.right)
+        .attr('height', BAR_HEIGHT + 1)
+        .attr('fill', 'white')
+
       let emissions = emissions_bar.selectAll('.emissions')
-            .data(root.descendants().filter((d) => d.depth > 0 && d.value > 0 && x(d.x1-d.x0) >= 1))
+            .data(root.descendants().filter((d) => d.depth > 0))
           .enter().append('g')
             .attr('class', (d) => 'emissions country ' + d.data.iso)
 
       emissions.append('path')
         .attr('class', 'geometry')
-        .attr('stroke-width', (d) => x(d.x1-d.x0) >= 1.0 ? 1.0 : 0)
         .attr('d', (d) => {
           let h = BAR_HEIGHT / (d.depth + d.height)
-          let x0 = Math.round(x(d.x0))
-          let y0 = Math.round(BAR_HEIGHT - d.depth * h)
-          let x1 = Math.round(x(d.x1))
-          return 'M' + x0 + ' ' + y0 +
-                 'H' + x1 + 'v' + Math.round(h) +
+          let x0 = d.x0
+          let x1 = Math.min(Math.max(d.x1, d.x0+1), d.parent.x1)   // i.e. at least 1 pixel, but never beyond parent
+          let y = Math.ceil(BAR_HEIGHT - d.depth * h) + 1
+          return 'M' + x0 + ' ' + y +
+                 'H' + x1 + 'v' + Math.round(h - 1) +
                  'H' + x0 + 'Z'
         })
 
       let emissions_label = emissions.append('g')
         .attr('class', 'label')
-        .attr('transform', (d) => 'translate(' + x((d.x0 + d.x1) / 2) + ')')
+        .attr('transform', (d) => 'translate(' + (d.x0 + d.x1) / 2 + ')')
 
       emissions_label.append('text')
         .attr('class', 'name')

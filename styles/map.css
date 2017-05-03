@@ -45,7 +45,7 @@
 
 .emissions path {
   shape-rendering: crispEdges;
-  stroke: white;
+  stroke: none;
 }
 
 .emissions .label {
