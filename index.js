@@ -63,21 +63,7 @@ function install(elem, width, height, datapoint=null) {
       let borders = topojson.feature(world, world.objects.borders).features
 
       let by_iso = root.descendants().reduce( (m, d) => (m[d.id] = d, m), {} )
-
-      features = features.filter( (d) => d.id in by_iso)
-      features.forEach(merge_dataset)
-
-      choropleth_points = choropleth_points.filter( (d) => d.id in by_iso)
-      choropleth_points.forEach(merge_dataset)
-
-      let feature_ids = d3.set(features.map((d) => d.id).concat(choropleth_points.map((d) => d.id)))
-      let gis_extra_ids = feature_ids.values().filter((id) => !by_iso[id]).sort()
-      let data_extra_ids = d3.keys(by_iso).filter((id) => !feature_ids.has(id)).sort()
-
-      if(gis_extra_ids.length) console.log('in GIS, not in dataset: ' + gis_extra_ids)
-      if(data_extra_ids.length) console.log('in dataset, not in GIS: ' + data_extra_ids)
-
-      function merge_dataset(d) {
+      let merge_dataset = (d) => {
         if(d.id in by_iso) {
           let node = by_iso[d.id]
           Object.assign(d.properties, node.data)
@@ -85,6 +71,21 @@ function install(elem, width, height, datapoint=null) {
           d.url = d.properties.url
         }
       }
+
+      features = features.filter( (d) => d.id in by_iso)
+      features.forEach(merge_dataset)
+
+      choropleth_points = choropleth_points.filter( (d) => d.id in by_iso)
+      choropleth_points.forEach(merge_dataset)
+
+      // Basic data sanity checking
+
+      let feature_ids = d3.set(features.map((d) => d.id).concat(choropleth_points.map((d) => d.id)))
+      let gis_extra_ids = feature_ids.values().filter((id) => !by_iso[id]).sort()
+      let data_extra_ids = d3.keys(by_iso).filter((id) => !feature_ids.has(id) && by_iso[id].height === 0).sort()
+
+      if(gis_extra_ids.length) console.warn('ISOs in GIS, not in dataset: ' + gis_extra_ids)
+      if(data_extra_ids.length) console.warn('ISOs in dataset, not in GIS: ' + data_extra_ids)
 
       // visualisation
 
