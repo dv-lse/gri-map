@@ -205,7 +205,7 @@ function install(elem, width, height, datapoint=null) {
         .attr('dy', '1em')
         .attr('fill', 'black')
         .attr('text-anchor', 'end')
-        .text('Laws')
+        .text('Laws & policies')
 
       legend.selectAll('.group')
         .data(laws_scale.range().map((c) => {
@@ -299,7 +299,7 @@ function install(elem, width, height, datapoint=null) {
         .attr('class', 'unit')
         .attr('text-anchor', 'start')
         .attr('x', 5)
-        .text('laws')
+        .text('laws & policies')
 
       let raw_emissions_label = emissions_label.append('text')
         .attr('y', BAR_HEIGHT)
