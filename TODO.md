@@ -1,6 +1,11 @@
 TODO
 ====
 
+  - [ ] Recipe for clean install
+  - [ ] Recipe for distribution build
+
+  - [ ] Implementation documentation
+
   - [x] Stroke edge of tiny country circles
   - [x] Move circles out of GIS
 
