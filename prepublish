@@ -4,12 +4,16 @@
 
 # pre-compute a GIS dataset for the GRI world map
 
-# run 'npm install d3 d3-dsv' first to get libraries
+# see 'Command-Line Cartography' by Bostock for context and approach
+# [ https://medium.com/@mbostock/command-line-cartography-part-1-897aa8f8ca2c ]
 
 # output:
 #   (1) large countries are taken from Natural Earth's 50m dataset
 #   (2) tiny countries have a choropleth point off to the side
 #   (3) hand-tweaked focus bounds over-ride those computed from the NE dataset
+
+# run 'npm install' first to get development libraries:
+#   d3, d3-dsv, d3-geo-projection, ndjson-cli, shapefile, topojson
 
 rm -rvf world
 

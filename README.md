@@ -44,16 +44,16 @@ Javascript code, the GIS dataset, and styling are all bundled together to speed 
 
 The JS bundle exports a single function *GRIMap.install*, which takes
 
-  (1) DOM element to install into
-  (2) width and height (in pixels) of the map to create
-  (3) live URL of the country data
+1. DOM element to install into
+2. width and height (in pixels) of the map to create
+3. live URL of the country data
 
 For example:
 
 ```html
 ...
 <script src="https://dv-lse.github.io/gri-map/dist/gri-map.js"></script>
-<!-- bundle URL is for illustration only! -->
+<!-- bundle URL should be altered for your host -->
 ...
 <div id="gri-map"><div>Loading...</div></div>
 ...

@@ -1,12 +1,12 @@
 {
   "jspm": {
     "dependencies": {
+      "css": "github:systemjs/plugin-css@^0.1.32",
       "d3": "npm:d3@^4.9.1",
       "d3-geo-projection": "npm:d3-geo-projection@^1.2.1",
       "d3-scale-chromatic": "npm:d3-scale-chromatic@^1.1.0",
-      "topojson-client": "npm:topojson-client@^2.1.0",
-      "css": "github:systemjs/plugin-css@^0.1.32",
-      "json": "github:systemjs/plugin-json@^0.3.0"
+      "json": "github:systemjs/plugin-json@^0.3.0",
+      "topojson-client": "npm:topojson-client@^2.1.0"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
