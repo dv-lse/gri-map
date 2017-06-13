@@ -1,12 +1,12 @@
 {
   "jspm": {
     "dependencies": {
-      "css": "github:systemjs/plugin-css@^0.1.32",
-      "d3": "npm:d3@^4.7.3",
+      "d3": "npm:d3@^4.9.1",
       "d3-geo-projection": "npm:d3-geo-projection@^1.2.1",
       "d3-scale-chromatic": "npm:d3-scale-chromatic@^1.1.0",
-      "json": "github:systemjs/plugin-json@^0.3.0",
-      "topojson-client": "npm:topojson-client@^2.1.0"
+      "topojson-client": "npm:topojson-client@^2.1.0",
+      "css": "github:systemjs/plugin-css@^0.1.32",
+      "json": "github:systemjs/plugin-json@^0.3.0"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
@@ -15,15 +15,17 @@
     }
   },
   "scripts": {
-    "prepublish": "bash prepublish",
-    "build": "jspm bundle-sfx index.js gri-map.js --minify --global-name GRIMap; mv gri-map.js* dist"
+    "prepublish": "./prepublish",
+    "build": "mkdir dist; jspm bundle-sfx index.js gri-map.js --minify --global-name GRIMap; mv gri-map.js* dist"
   },
   "devDependencies": {
-    "jspm": "^0.16.48",
+    "d3": "^4.9.1",
+    "d3-dsv": "^1.0.5",
+    "d3-geo-projection": "^1.2.3",
     "ndjson-cli": "^0.3.0",
-    "shapefile": "^0.5.9",
-    "topojson": "^2.0.0",
-    "topojson-client": "^2.1.0",
-    "topojson-simplify": "^2.0.0"
+    "shapefile": "^0.5.11",
+    "topojson": "^3.0.0",
+    "jspm": "^0.16.53",
+    "http-server": "^0.10.0"
   }
 }

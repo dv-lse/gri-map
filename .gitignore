@@ -6,4 +6,4 @@
 /npm-debug.log
 # build products reqd for staging
 /build/*
-/gri-map.js*
+/dist/*
