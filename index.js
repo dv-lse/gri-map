@@ -1,15 +1,29 @@
+/******************************************************************************
+ * GRI Map Tool
+ *
+ * LSE Grantham Institute's interactive map of global CO2 emissions
+ ******************************************************************************/
+
+// library dependencies
+
 import * as d3 from 'd3'
 import * as topojson from 'topojson-client'
 
 import {geoEckert3} from 'd3-geo-projection'
 import * as scheme from 'd3-scale-chromatic'
 
+// css and json assets, included directly into the bundle
+
 import './styles/map.css!'
 
 import world from './world/map.json!json'
 import focus_bounds from './data/focus_bounds.json!json'
 
+// default configuration
+
 const DEFAULT_DATAPOINT = 'data/emissions.json'
+
+// layout within map element
 
 const BAR_MARGINS = { top: 0, right: 105, bottom: 65, left: 15 }
 const BAR_HEIGHT = 20
@@ -24,50 +38,66 @@ const BACKGROUND_MARGINS = { top: 5, right: 7, bottom: 5, left: 7 }
 const FOCUS_MARGIN = 5
 
 
+// install map into host element, then download country data
+
 function install(elem, width, height, datapoint=null) {
 
+  //
   // main application state
+  //
 
+  // ISO code of currently focused country
   let focus_id = null
 
+  // key hand-tweaked country bounds by ISO code
   let focus_bounds_map = focus_bounds.reduce( (m, d) => (m[d.iso] = [[+d.left,+d.bottom],[+d.right,+d.top]], m), {})
 
+  // size of popup iframe
   let detail_dimensions = [
     (width - DETAIL_MARGIN.right) / 2,
     height - DETAIL_MARGIN.top - DETAIL_MARGIN.bottom
   ]
 
+  // load per-country data: example dataset shown if no URL provided
   d3.json(datapoint || DEFAULT_DATAPOINT, (err, countries) => {
       if(err) throw err
 
-      // post-process countries dataset [ dropdown & emissions bar ]
+      // post-process countries dataset
+      //   (a) order alphabetically for the drop-down
+      //   (b) hierarchically by parent and emissions for emissions bar
 
       countries.forEach( (d) => d.id = d.iso)
       countries.sort( (a,b) => d3.ascending(a.name, b.name) )
+
       let root = d3.stratify()
         .id((d) => d.id || d.iso)
         .parentId((d) => d.id !== 'ROOT' ? d.parent_iso || 'ROOT' : undefined)
         (countries.concat({id:'ROOT'}))
 
       root.eachAfter( (d) => {
-          let sum = d.children && d.children.length ? d3.sum(d.children, (v) => Math.max(0, v.value)) : 0
-          d.value = Math.max(sum, d.data.emissions || 0)  // if computed value is higher use it (to fit elements visually)
-        })
-        .sort( (a,b) => d3.descending(a.value, b.value) )
+        let sum = d.children && d.children.length ? d3.sum(d.children, (v) => Math.max(0, v.value)) : 0
+        d.value = Math.max(sum, d.data.emissions || 0)
+                  // if computed value is higher use it (to fit elements visually)
+      }).sort( (a,b) => d3.descending(a.value, b.value) )
 
-      // post-process map [ move laws count into GIS dataset ]
+      // convert GIS layers from TopoJSON to GeoJSON
 
       let features = topojson.feature(world, world.objects.countries).features
       let choropleth_points = topojson.feature(world, world.objects.choropleth_points).features
       let land = topojson.feature(world, world.objects.land).features
       let borders = topojson.feature(world, world.objects.borders).features
 
+      // post-process map [ move laws count into GIS dataset ]
+
       let by_iso = root.descendants().reduce( (m, d) => (m[d.id] = d, m), {} )
       let merge_dataset = (d) => {
         if(d.id in by_iso) {
           let node = by_iso[d.id]
+          // merge dynamic country data into GIS properties
           Object.assign(d.properties, node.data)
+          // gather all ancestor ids
           d.properties.all_ids = node.ancestors().reduce( (m, d) => (m[d.id] = true, m), {} )
+          // lift url
           d.url = d.properties.url
         }
       }
@@ -78,7 +108,7 @@ function install(elem, width, height, datapoint=null) {
       choropleth_points = choropleth_points.filter( (d) => d.id in by_iso)
       choropleth_points.forEach(merge_dataset)
 
-      // Basic data sanity checking
+      // Basic data sanity checking in country count file
 
       let feature_ids = d3.set(features.map((d) => d.id).concat(choropleth_points.map((d) => d.id)))
       let gis_extra_ids = feature_ids.values().filter((id) => !by_iso[id]).sort()
@@ -87,10 +117,10 @@ function install(elem, width, height, datapoint=null) {
       if(gis_extra_ids.length) console.warn('ISOs in GIS, not in dataset: ' + gis_extra_ids)
       if(data_extra_ids.length) console.warn('ISOs in dataset, not in GIS: ' + data_extra_ids)
 
-      // visualisation
+      // visualisation markup
 
       let svg = d3.select(elem)
-        .html('')                 // clear any loading spinners
+        .html('')                 // clear loading spinner
         .append('svg')
           .attr('class', 'map')
           .attr('width', width)
@@ -99,7 +129,7 @@ function install(elem, width, height, datapoint=null) {
       let g = svg.append('g')
 
       let projection = geoEckert3()
-        .scale(100)               // arbitrary; reqd to since unit scale causes floating point errors
+        .scale(100)               // arbitrary; reqd since unit scale causes floating point errors
         .translate([0, 0])
         .precision(.1)
 
@@ -134,10 +164,10 @@ function install(elem, width, height, datapoint=null) {
       // SVG elements
 
       svg.on('click', () => {
-        focus(null)
+        focus(null)          // zoom out when clicking on background
       })
 
-      // map
+      // map layers
 
       g.append('path')
         .attr('class', 'map-sphere')
@@ -157,6 +187,7 @@ function install(elem, width, height, datapoint=null) {
       let map_features = g.append('g')
           .attr('class', 'map-features')
 
+      // country outlines: shading by number of laws
       map_features.selectAll('.map-feature')
           .data(features)
          .enter().append('g')
@@ -171,6 +202,7 @@ function install(elem, width, height, datapoint=null) {
         .attr('class', 'map-borders')
         .attr('d', path)
 
+      // tiny country points, also shaded by number of laws
       map_features.selectAll('.circles')
          .data(choropleth_points)
         .enter().append('g')
@@ -195,7 +227,8 @@ function install(elem, width, height, datapoint=null) {
 
       let legend = svg.append('g')
         .attr('class', 'legend')
-        .attr('transform', 'translate(' + [width - LEGEND_MARGINS.right - legend_scale.range()[1], LEGEND_MARGINS.top] + ')')
+        .attr('transform', 'translate(' + [width - LEGEND_MARGINS.right - legend_scale.range()[1],
+                                           LEGEND_MARGINS.top] + ')')
 
       legend.append('rect')
         .attr('class', 'background')
@@ -258,6 +291,7 @@ function install(elem, width, height, datapoint=null) {
         .attr('height', BAR_HEIGHT + 1)
         .attr('fill', 'white')
 
+      // per-country emissions rectangles, offset by hierarchy
       let emissions = emissions_bar.selectAll('.emissions')
             .data(root.descendants().filter((d) => d.depth > 0))
           .enter().append('g')
@@ -275,6 +309,7 @@ function install(elem, width, height, datapoint=null) {
                  'H' + x0 + 'Z'
         })
 
+      // hover labels for emissions bar
       let emissions_label = emissions.append('g')
         .attr('class', 'label')
         .attr('transform', (d) => 'translate(' + (d.x0 + d.x1) / 2 + ')')
@@ -334,16 +369,6 @@ function install(elem, width, height, datapoint=null) {
         .attr('x', 5)
         .text('of global emissions')
 
-      function update(sel, hover_id) {
-        sel.selectAll('.map-features .country .geometry')
-          // TODO move logic into a D3 selector by class?  this only goes up one level
-          .attr('fill', (d) => d.properties.all_ids && d.properties.all_ids[hover_id] ? 'orange' : laws_scale(d.properties.laws))
-        sel.selectAll('.emissions path')
-          .attr('fill', (d) => d.id !== hover_id ? 'orange' : 'red')
-        sel.selectAll('.emissions .label')
-          .attr('opacity', (d) => d.id !== hover_id ? 0 : 1)
-      }
-
       // prettify heads-up display using opacity
 
       d3.selectAll('rect.background').each(function() {
@@ -355,7 +380,22 @@ function install(elem, width, height, datapoint=null) {
           .attr('height', bbox.height + BACKGROUND_MARGINS.top + BACKGROUND_MARGINS.bottom)
         })
 
-      // interaction
+      //
+      // interaction: color map and emissions bars to highlight an ISO
+      //              show/hide label as appropriate
+      //
+
+      function update(sel, hover_id) {
+        sel.selectAll('.map-features .country .geometry')
+          // highlight all descendant features - or color by number of laws
+          .attr('fill', (d) => d.properties.all_ids && d.properties.all_ids[hover_id] ? 'orange' : laws_scale(d.properties.laws))
+        sel.selectAll('.emissions path')
+          .attr('fill', (d) => d.id !== hover_id ? 'orange' : 'red')
+        sel.selectAll('.emissions .label')
+          .attr('opacity', (d) => d.id !== hover_id ? 0 : 1)
+      }
+
+      // click on map / emissions bar to focus
 
       d3.selectAll('.country .geometry')
         .on('click', function(d) {
@@ -363,9 +403,13 @@ function install(elem, width, height, datapoint=null) {
           d3.event.stopPropagation()
         })
 
+      // mouseover map / emissions bar to display details
+
       d3.selectAll('.country .geometry')
         .on('mouseenter', (d) => highlight(d.id || focus_id) )
         .on('mouseleave', () => highlight(focus_id) )
+
+      // zoom behavior
 
       let zoom = d3.zoom()
         .translateExtent(sphere_bounds)
@@ -400,6 +444,8 @@ function install(elem, width, height, datapoint=null) {
            .attr('value', (d) => d ? d.iso : 'NONE')
            .html((d) => d ? d.name : '...')
 
+      // detail box: iframe with dynamic contents
+
       let detail = d3.select(elem)
         .append('div')
           .attr('id', 'gri-detail')
@@ -415,6 +461,8 @@ function install(elem, width, height, datapoint=null) {
         .style('height', detail_dimensions[1] + 'px')
         .attr('src', '')
 
+      // wrap iframe in div with close icon
+
       let popup = d3.select(elem)
         .append('div')
         .attr('class', 'arrow_box')
@@ -426,6 +474,12 @@ function install(elem, width, height, datapoint=null) {
         .delay(750)
         .duration(1500)
         .style('opacity', 1)
+
+      //
+      // interaction: focus on a given country ISO by
+      //              (a) zooming to boundaries
+      //              (b) displaying its detail box
+      //
 
       function focus(id) {
         popup.remove()
@@ -467,6 +521,8 @@ function install(elem, width, height, datapoint=null) {
         timer = setTimeout(() => svg.call(update, id), 200)
       }
 
+      // calculate the zoom translate & scale to fit a given bounding box
+
       function zoomTransformFit(bbox=null, scaleExtent=null, dims=null) {
         let f = bbox ? {type: 'LineString', coordinates: bbox} : {type: 'Sphere'}
         let b = path.bounds(f)
@@ -490,4 +546,5 @@ function install(elem, width, height, datapoint=null) {
     })
 }
 
+// global exports
 export { install }
